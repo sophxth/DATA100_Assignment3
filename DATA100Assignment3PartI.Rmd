@@ -1,6 +1,6 @@
 ---
 title: "Exploring Disparate Data: Part 1"
-author: "Put your group name here: (anyname that is fancy and funny)"
+author: "Put your group name here: The Geese"
 date: "Due November 12th, 2025"
 ---
 
@@ -21,8 +21,8 @@ library(openxlsx)
 
 List all group members here (maximum *3* and minimum *2*):
 
-- 
-- 
+- Tran Tram Anh (Sophia) Thai
+- Kaya Darlings
 - 
 
 This file will be submitted as an Rmd file to GradeScope. You will need to create a group on GradeScope with the correct members. *If the person who submits this does not list you, you will not get a grade on this assignment!!!* Make sure you trust the person who is submitting it!
