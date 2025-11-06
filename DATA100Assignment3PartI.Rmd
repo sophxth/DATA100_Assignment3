@@ -60,6 +60,8 @@ new_columns <- c("status", "latitude", "longitude", "max_wind",
     "NW_extend_50", "NE_extend_64", "SE_extend_64", "SW_extend_64",
     "NW_extend_64", "r_max_wind"
 )
+
+
 ```
 
 ```{r at_cyclone, error=TRUE}
