@@ -74,7 +74,7 @@ at_cyclone <- str_c(cyclone_data_address, at_cyclone_filename, sep = "") |>
     separate_wider_delim(
         cols = `4`,
         # Set the delim and the names
-        col = '4',
+        col = `4`,
         delim =",",
         names = new_columns
     ) |>
@@ -96,17 +96,19 @@ at_cyclone <- str_c(cyclone_data_address, at_cyclone_filename, sep = "") |>
         BasinNumberYear,
         # Specify the widths
         widths = c(4, 2, 2),
-        names = c("Observe Year", "Month", "Day")
+        names = c("Basin", "Number", "Name Year")
     ) |>
     separate_wider_position(
         `1`,
         # Specify the widths
-        # YOUR CODE HERE
+        widths = c(4, 2, 2),
+        names = c("ObservYear", "Month", "Day")
     ) |>
     separate_wider_position(
         `2`,
         # Specify the widths
-        # YOUR CODE HERE
+        widths = c(2, 2),
+        names = c("Hour", "Minute")
     ) |>
     rename(
         Identifier = `3`
@@ -120,8 +122,9 @@ at_cyclone <- str_c(cyclone_data_address, at_cyclone_filename, sep = "") |>
     ) |>
     mutate(across(max_wind:r_max_wind, as.numeric))
 
+at_cyclone
 
-print(at_cyclone)
+# print(at_cyclone)
 ```
 
 ```{r}
