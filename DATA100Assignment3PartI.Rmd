@@ -63,7 +63,6 @@ new_columns <- c("status", "latitude", "longitude", "max_wind",
 ```
 
 ```{r at_cyclone, error=TRUE}
-
 # Same steps as in A2, but you can put them all in the same pipeline!
 at_cyclone <- str_c(cyclone_data_address, at_cyclone_filename, sep = "") |>
     read_csv(
@@ -74,7 +73,6 @@ at_cyclone <- str_c(cyclone_data_address, at_cyclone_filename, sep = "") |>
     separate_wider_delim(
         cols = `4`,
         # Set the delim and the names
-        col = `4`,
         delim =",",
         names = new_columns
     ) |>
@@ -95,20 +93,17 @@ at_cyclone <- str_c(cyclone_data_address, at_cyclone_filename, sep = "") |>
     separate_wider_position(
         BasinNumberYear,
         # Specify the widths
-        widths = c(4, 2, 2),
-        names = c("Basin", "Number", "Name Year")
+        widths = c(Basin = 4, Number = 2, NameYear = 2)
     ) |>
     separate_wider_position(
         `1`,
         # Specify the widths
-        widths = c(4, 2, 2),
-        names = c("ObservYear", "Month", "Day")
+        widths = c(ObservYear= 4, Month = 2, Day =2)
     ) |>
     separate_wider_position(
         `2`,
         # Specify the widths
-        widths = c(2, 2),
-        names = c("Hour", "Minute")
+        widths = c(Hour = 2, Minute = 2)
     ) |>
     rename(
         Identifier = `3`
