@@ -132,6 +132,61 @@ at_cyclone
 np_cyclone <- str_c(cyclone_data_address, np_cyclone_filename, sep = "") |>
     # ALL of the steps all over again
     # YOUR CODE HERE
+    read_csv(
+        col_names = c(as.character(1:4)),
+        progress = FALSE,
+        show_col_types = FALSE
+    ) |>
+    separate_wider_delim(
+        cols = `4`,
+        # Set the delim and the names
+        delim =",",
+        names = new_columns
+    ) |>
+    mutate(
+        across(everything(), str_trim),
+        # make "-999" NAs, make "-99" NAs
+        # Create columns BasinNumberYear, Name, and Entries
+        across(everything(), ~na_if(., "-999")),
+        across(everything(), ~na_if(., "-99")),
+        BasinNumberYear = ifelse(is.na(status), `1`, NA),
+        Name = ifelse(is.na(status), `2`, NA),
+        Entries = ifelse(is.na(status), `3`, NA)
+    ) |>
+    relocate(BasinNumberYear, Name, Entries) |>
+    fill(BasinNumberYear, Name, Entries) |>
+    filter(!is.na(status))  |>
+    select(-Entries) |>
+    separate_wider_position(
+        BasinNumberYear,
+        # Specify the widths
+        widths = c(Basin = 4, Number = 2, NameYear = 2)
+    ) |>
+    separate_wider_position(
+        `1`,
+        # Specify the widths
+        widths = c(ObservYear= 4, Month = 2, Day =2)
+    ) |>
+    separate_wider_position(
+        `2`,
+        # Specify the widths
+        widths = c(Hour = 2, Minute = 2)
+    ) |>
+    rename(
+        Identifier = `3`
+    ) |>
+    mutate(
+        across(
+            c(NameYear, ObservYear, Month, Day, Hour,
+                Minute, Number),
+            as.integer
+        )
+    ) |>
+    mutate(across(max_wind:r_max_wind, as.numeric))
+
+np_cyclone
+
+  
 
 print(np_cyclone)
 ```
