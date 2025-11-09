@@ -559,6 +559,12 @@ In the chunk below, aggregate the data to be total cases in 2020, by country. Yo
 
 ```{r covid_2020, error=TRUE}
 # YOUR CODE HERE
+covid_2020 <- covid_cases |>
+  filter(year(date) == 2020) |>
+  group_by(location, continent) |>
+  summarise(total_cases = max(total_cases, na.rm = TRUE)) |>
+  ungroup() |>
+  rename(country = location)
 
 covid_2020
 ```
@@ -571,6 +577,7 @@ Before we move on, we'll save `covid_2020.parquet` for use in Part 2.
 
 ```{r covid_2020_parquet, error=TRUE}
 # YOUR CODE HERE
+write_parquet(covid_2020, "covid_2020.parquet")
 ```
 
 ```{r}
