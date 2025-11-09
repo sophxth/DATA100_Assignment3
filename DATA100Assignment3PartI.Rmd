@@ -437,6 +437,17 @@ In the chunk below, find the maximum and minimum sea ice extent for each year (b
 ```{r}
 ice_extent_yearly <- ice_extent_daily |>
     # YOUR CODE HERE
+    group_by(year, region) |>
+    summarise(
+    min = min(ice_extent, na.rm = TRUE),
+    max = max(ice_extent, na.rm = TRUE)
+  ) |>
+    pivot_longer(
+    cols = c(min, max),
+    names_to = "name",
+    values_to = "value"
+  ) |>
+    arrange(year, region, name)
 
 ice_extent_yearly
 ```
@@ -464,6 +475,8 @@ Finally, let's save the data to `ice_extent_yeary.parquet`.
 
 ```{r sea_ice_parquet, error=TRUE}
 # YOUR CODE HERE
+write_parquet(ice_extent_yearly, "ice_extent_yearly.parquet")
+
 ```
 
 ```{r}
