@@ -722,17 +722,17 @@ setdiff(aware_countries, covid_countries)
 covid_2020_match_country <- covid_2020 |>
   mutate(
     country = case_when(
-      country == "Bolivia"                         ~ "Bolivia",
+      country == "Bolivia" ~ "Bolivia",
       country == "Democratic Republic of the Congo"~ "Democratic Republic of the Congo",
-      country == "Egypt, Arab Rep."                ~ "Egypt, Arab Rep.",
-      country == "Hong Kong SAR, China"            ~ "Hong Kong SAR, China",
-      country == "Lao PDR"                         ~ "Lao PDR",
-      country == "Slovak Republic"                 ~ "Slovak Republic",
-      country == "North Macedonia"                 ~ "North Macedonia",
-      country == "Korea, Rep."                     ~ "Korea, Rep.",
-      country == "Türkiye"                         ~ "Türkiye",
-      country == "Viet Nam"                        ~ "Viet Nam",
-      country == "Yemen, Rep."                     ~ "Yemen, Rep.",
+      country == "Egypt, Arab Rep."~ "Egypt, Arab Rep.",
+      country == "Hong Kong SAR, China"~ "Hong Kong SAR, China",
+      country == "Lao PDR" ~ "Lao PDR",
+      country == "Slovak Republic" ~ "Slovak Republic",
+      country == "North Macedonia" ~ "North Macedonia",
+      country == "Korea, Rep." ~ "Korea, Rep.",
+      country == "Turkey" ~ "Turkey",
+      country == "Viet Nam" ~ "Viet Nam",
+      country == "Yemen, Rep." ~ "Yemen, Rep.",
       TRUE ~ country
     )
   )
