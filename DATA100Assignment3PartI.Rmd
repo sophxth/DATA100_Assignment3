@@ -442,7 +442,8 @@ ice_extent_yearly <- ice_extent_daily |>
   group_by(year, region) |>
   summarise(
       min = min(ice_extent, na.rm = TRUE),
-      max = max(ice_extent, na.rm = TRUE)
+      max = max(ice_extent, na.rm = TRUE),
+      .groups = "drop"
     ) |>
   pivot_longer(
       cols = c(min, max),
@@ -743,12 +744,22 @@ covid_2020_fixed <- covid_2020 |>
             country == "Kyrgyzstan" ~ "Kyrgyz Republic",
             country == "Venezuela" ~ "Venezuela, RB",
             country == "Yemen" ~ "Yemen, Rep.",
+            country == "Syria" ~ "Syrian Arab Republic",
+            country == "Myanmar" ~ "Myanmar",
+            country == "Ivory Coast" ~ "Cote d'Ivoire",
+            country == "Palestine" ~ "West Bank and Gaza",
+            country == "Taiwan" ~ "Taiwan, China",
+            country == "Bahamas, The" ~ "Bahamas",
+            country == "Gambia, The" ~ "Gambia",
+            country == "Swaziland" ~ "Eswatini",
             TRUE ~ country
         )
     )
 covid_2020_match_country <- covid_2020_fixed |>
   semi_join(aware_pop, by = "country")
 covid_2020_match_country
+
+nrow(covid_2020_match_country)
 
 ```
 
