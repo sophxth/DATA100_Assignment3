@@ -17,6 +17,8 @@ library(tidyverse)
 theme_set(theme_bw())
 library(arrow)
 library(openxlsx)
+library(janitor)
+
 ```
 
 List all group members here (maximum *3* and minimum *2*):
@@ -817,7 +819,13 @@ To make the data more convenient for Part 2, perform the following operations. T
 ```{r happiness}
 happiness <- read.xlsx("DataForTable2.1.xlsx") |>
     # YOUR CODE HERE
-
+    clean_names() |>
+    rename(country = country_name) |>
+    filter(!is.na(ladder_score)) |>
+    arrange(country, year) |>
+    group_by(country) |>
+    slice_tail(n = 1) |>
+    ungroup()
 happiness
 ```
 ```{r}
