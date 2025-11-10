@@ -694,6 +694,7 @@ Now we can join! Use a [join](https://dplyr.tidyverse.org/reference/mutate-joins
 ```{r aware_pop, error=TRUE}
 # YOUR CODE HERE
 aware_pop <- aware_fixed_country_match |>
+  filter(country != "Puerto Rico (US)")|>
   inner_join(
     pop_data |> 
       select(country, total_population = SP.POP.TOTL),
@@ -729,11 +730,13 @@ setdiff(aware_countries, covid_countries)
 # YOUR CODE HERE
 
 covid_2020_match_country <- covid_2020 |>
+  filter(!is.na(continent)) |>      # remove regions & aggregates
+  select(country, continent, total_cases) |>
   mutate(
       country = case_when(
           country == "Czechia" ~ "Czech Republic",
           country == "Slovakia" ~ "Slovak Republic",
-          country == "Turkey" ~ "Turkiye", 
+          country == "Turkey" ~ "Turkey", 
           country == "South Korea" ~ "Korea, Rep.",
           country == "Vietnam" ~ "Viet Nam",
           country == "Laos" ~ "Lao PDR",
