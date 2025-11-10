@@ -734,9 +734,10 @@ covid_2020_match_country <- covid_2020 |>
   select(country, continent, total_cases) |>
   mutate(
       country = case_when(
+          country == "Afghanistan" ~ "Afghanistan",
           country == "Czechia" ~ "Czech Republic",
           country == "Slovakia" ~ "Slovak Republic",
-          country == "Turkey" ~ "Turkey", 
+          country == "Turkey" ~ "Turkiye", 
           country == "South Korea" ~ "Korea, Rep.",
           country == "Vietnam" ~ "Viet Nam",
           country == "Laos" ~ "Lao PDR",
@@ -758,6 +759,8 @@ covid_2020_match_country <- covid_2020 |>
           country == "Gambia, The" ~ "Gambia",
           country == "Swaziland" ~ "Eswatini",
           country == "East Timor" ~ "Timor-Leste",
+          country == "American Samoa" ~ "United States",
+          country == "United States Virgin Islands" ~ "United States",
           TRUE ~ country
       
         )
