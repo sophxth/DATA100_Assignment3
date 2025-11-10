@@ -734,38 +734,19 @@ covid_2020_match_country <- covid_2020 |>
   select(country, continent, total_cases) |>
   mutate(
       country = case_when(
-          country == "Afghanistan" ~ "Afghanistan",
-          country == "Czechia" ~ "Czech Republic",
-          country == "Slovakia" ~ "Slovak Republic",
-          country == "Turkey" ~ "Turkiye", 
-          country == "South Korea" ~ "Korea, Rep.",
-          country == "Vietnam" ~ "Viet Nam",
-          country == "Laos" ~ "Lao PDR",
-          country == "Iran" ~ "Iran, Islamic Rep.",
-          country == "Russia" ~ "Russian Federation",
-          country == "Democratic Republic of Congo" ~ "Congo, Dem. Rep.",
-          country == "Congo" ~ "Congo, Rep.",
-          country == "Egypt" ~ "Egypt, Arab Rep.",
-          country == "Hong Kong" ~ "Hong Kong SAR, China", 
-          country == "Kyrgyzstan" ~ "Kyrgyz Republic",
-          country == "Venezuela" ~ "Venezuela, RB",
-          country == "Yemen" ~ "Yemen, Rep.",
-          country == "Syria" ~ "Syrian Arab Republic",
-          country == "Myanmar" ~ "Myanmar",
-          country == "Ivory Coast" ~ "Cote d'Ivoire",
-          country == "Palestine" ~ "West Bank and Gaza",
-          country == "Taiwan" ~ "Taiwan, China",
-          country == "Bahamas, The" ~ "Bahamas",
-          country == "Gambia, The" ~ "Gambia",
-          country == "Swaziland" ~ "Eswatini",
-          country == "East Timor" ~ "Timor-Leste",
-          country == "American Samoa" ~ "United States",
-          country == "United States Virgin Islands" ~ "United States",
-          TRUE ~ country
+        country == "Democratic Republic of Congo" ~ "Congo, Dem. Rep.",
+        country == "Egypt" ~ "Egypt, Arab Rep.",
+        country == "Hong Kong" ~ "Hong Kong SAR, China",
+        country == "Laos" ~ "Lao PDR",
+        country == "Slovakia" ~ "Slovak Republic",
+        country == "South Korea" ~ "Korea, Rep.",
+        country == "Turkey" ~ "Turkiye",
+        country == "Vietnam" ~ "Viet Nam",
+        country == "Yemen" ~ "Yemen, Rep.",
+        TRUE ~ country
       
         )
     )|>
-  filter(country != "Afghanistan") |>
   semi_join(aware_pop, by = "country")
 covid_2020_match_country
 
