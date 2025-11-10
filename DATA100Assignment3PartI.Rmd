@@ -449,7 +449,7 @@ ice_extent_yearly <- ice_extent_daily |>
     names_to = "name",
     values_to = "value"
   ) |>
-  ungroup() |>
+  mutate(name = factor(name, levels = c("min", "max"))) |>
   arrange(year, region, name)
 
 ice_extent_yearly
