@@ -654,17 +654,18 @@ aware_fixed_country_match <- aware_fixed_country |>
         # Change country using a case_when statement
         # YOUR CODE HERE
       country = case_when(
-        country == "Bolivia (Plurinational State of)"     ~ "Bolivia",
-        country == "Congo (Democratic Republic of the)"   ~ "Democratic Republic of the Congo",
-        country == "Egypt"                                ~ "Egypt, Arab Rep.",
-        country == "Hong Kong"                            ~ "Hong Kong SAR, China",
-        country == "Lao People's Democratic Republic"     ~ "Lao PDR",
-        country == "Slovakia"                             ~ "Slovak Republic",
-        country == "North Macedonia"                      ~ "North Macedonia",
-        country == "South Korea"                          ~ "Korea, Rep.",
-        country == "Turkey"                               ~ "Turkey",
-        country == "Vietnam"                              ~ "Viet Nam",
-        country == "Yemen"                                ~ "Yemen, Rep.",
+        country == "Bolivia (Plurinational State of)"       ~ "Bolivia",
+        country == "Congo (Democratic Republic of the)"     ~ "Congo, Dem. Rep.",
+        country == "Egypt"                                  ~ "Egypt, Arab Rep.",
+        country == "Hong Kong"                              ~ "Hong Kong SAR, China",
+        country == "Lao People's Democratic Republic"       ~ "Lao PDR",
+        country == "Slovakia"                               ~ "Slovak Republic",
+        country == "North MAcedonia"                        ~ "North Macedonia",
+        country == "South Korea"                            ~ "Korea, Rep.",
+        country == "Turkey"                                 ~ "Turkiye",
+        country == "Vietnam"                                ~ "Viet Nam",
+        country == "Yemen"                                  ~ "Yemen, Rep.",
+        country == "Puerto Rico"                            ~ "Puerto Rico (US)",
         TRUE ~ country
     )
   )
@@ -672,6 +673,12 @@ aware_fixed_country_match <- aware_fixed_country |>
 aware_countries <- aware_fixed_country_match |> pull(country)
 print("Countries in aware_countries that aren't in pop_data:")
 setdiff(aware_countries, pop_countries) |> sort()
+
+pop_countries <- pop_data |> pull(country)
+aware_countries <- aware_fixed_country_match |> pull(country)
+
+setdiff(aware_countries, pop_countries) |> sort() |> length()
+
 ```
 
 
