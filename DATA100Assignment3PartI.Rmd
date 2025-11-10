@@ -765,6 +765,7 @@ covid_2020_match_country <- covid_2020 |>
       
         )
     )|>
+  filter(country != "Afghanistan") |>
   semi_join(aware_pop, by = "country")
 covid_2020_match_country
 
