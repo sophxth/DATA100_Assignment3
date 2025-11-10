@@ -827,35 +827,17 @@ To make the data more convenient for Part 2, perform the following operations. T
 
 ```{r happiness}
 # First, let's see the structure of the data
-happiness_raw <- read.xlsx("DataForTable2.1.xlsx") |>
-    clean_names()
-
-# Check the years available
-happiness_raw |> 
-    group_by(country_name) |> 
-    summarise(max_year = max(year)) |> 
-    pull(max_year) |> 
-    unique() |> 
-    sort()
-
-# The correct approach - ensure we're getting the true most recent year
-happiness <- happiness_raw |>
+happiness <- read.xlsx("DataForTable2.1.xlsx") |>
+    clean_names() |>
     rename(country = country_name) |>
     filter(!is.na(ladder_score)) |>
-    # Group by country and get the row with the maximum year
-    group_by(country) |>
-    filter(year == max(year)) |>
-    # If there are ties (same max year), take the first one
-    slice(1) |>
+    # Use arrange + distinct to get the most recent year
+    arrange(country, desc(year)) |>
+    distinct(country, .keep_all = TRUE) |>
     ungroup()
-
-# Check some sample countries and their years
-happiness |> 
-    filter(country %in% c("Finland", "Denmark", "United States", "Afghanistan")) |>
-    select(country, year)
-
 happiness
 ```
+
 ```{r}
 . = ottr::check("tests/happiness.R")
 ```
