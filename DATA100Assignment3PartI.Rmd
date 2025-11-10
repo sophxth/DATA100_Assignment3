@@ -728,23 +728,25 @@ setdiff(aware_countries, covid_countries)
 covid_2020_fixed <- covid_2020 |>
     mutate(
         country = case_when(
-            country == "United States" ~ "United States",
             country == "Czechia" ~ "Czech Republic",
-            country == "Slovakia" ~ "Slovak Republic", 
-            country == "Turkey" ~ "Turkiye",
-            country == "Bolivia" ~ "Bolivia",
-            country == "Congo" ~ "Congo, Dem. Rep.",
-            country == "Egypt" ~ "Egypt, Arab Rep.",
-            country == "Hong Kong" ~ "Hong Kong SAR, China",
-            country == "Laos" ~ "Lao PDR",
-            country == "North Macedonia" ~ "North Macedonia",
+            country == "Slovakia" ~ "Slovak Republic",
+            country == "Turkey" ~ "Turkiye", 
             country == "South Korea" ~ "Korea, Rep.",
             country == "Vietnam" ~ "Viet Nam",
+            country == "Laos" ~ "Lao PDR",
+            country == "Iran" ~ "Iran, Islamic Rep.",
+            country == "Russia" ~ "Russian Federation",
+            country == "Democratic Republic of Congo" ~ "Congo, Dem. Rep.",
+            country == "Congo" ~ "Congo, Rep.",
+            country == "Egypt" ~ "Egypt, Arab Rep.",
+            country == "Hong Kong" ~ "Hong Kong SAR, China", 
+            country == "Kyrgyzstan" ~ "Kyrgyz Republic",
+            country == "Venezuela" ~ "Venezuela, RB",
             country == "Yemen" ~ "Yemen, Rep.",
             TRUE ~ country
         )
     )
-covid_2020_match_country <- covid_2020 |>
+covid_2020_match_country <- covid_2020_fixed |>
   semi_join(aware_pop, by = "country")
 covid_2020_match_country
 
