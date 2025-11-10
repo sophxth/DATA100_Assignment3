@@ -725,6 +725,25 @@ setdiff(aware_countries, covid_countries)
 
 ```{r covid_2020_match_country, error=TRUE}
 # YOUR CODE HERE
+covid_2020_fixed <- covid_2020 |>
+    mutate(
+        country = case_when(
+            country == "United States" ~ "United States",
+            country == "Czechia" ~ "Czech Republic",
+            country == "Slovakia" ~ "Slovak Republic", 
+            country == "Turkey" ~ "Turkiye",
+            country == "Bolivia" ~ "Bolivia",
+            country == "Congo" ~ "Congo, Dem. Rep.",
+            country == "Egypt" ~ "Egypt, Arab Rep.",
+            country == "Hong Kong" ~ "Hong Kong SAR, China",
+            country == "Laos" ~ "Lao PDR",
+            country == "North Macedonia" ~ "North Macedonia",
+            country == "South Korea" ~ "Korea, Rep.",
+            country == "Vietnam" ~ "Viet Nam",
+            country == "Yemen" ~ "Yemen, Rep.",
+            TRUE ~ country
+        )
+    )
 covid_2020_match_country <- covid_2020 |>
   semi_join(aware_pop, by = "country")
 covid_2020_match_country
@@ -808,14 +827,34 @@ To make the data more convenient for Part 2, perform the following operations. T
 
 
 ```{r happiness}
-happiness <- read.xlsx("DataForTable2.1.xlsx") |>
-    # YOUR CODE HERE
-  clean_names() |>
-  rename(country = country_name) |>
-  filter(!is.na(ladder_score)) |>
-  group_by(country) |>
-  slice_max(order_by = year, n = 1, with_ties = FALSE) |>
-  ungroup()
+# First, let's see the structure of the data
+happiness_raw <- read.xlsx("DataForTable2.1.xlsx") |>
+    clean_names()
+
+# Check the years available
+happiness_raw |> 
+    group_by(country_name) |> 
+    summarise(max_year = max(year)) |> 
+    pull(max_year) |> 
+    unique() |> 
+    sort()
+
+# The correct approach - ensure we're getting the true most recent year
+happiness <- happiness_raw |>
+    rename(country = country_name) |>
+    filter(!is.na(ladder_score)) |>
+    # Group by country and get the row with the maximum year
+    group_by(country) |>
+    filter(year == max(year)) |>
+    # If there are ties (same max year), take the first one
+    slice(1) |>
+    ungroup()
+
+# Check some sample countries and their years
+happiness |> 
+    filter(country %in% c("Finland", "Denmark", "United States", "Afghanistan")) |>
+    select(country, year)
+
 happiness
 ```
 ```{r}
