@@ -660,9 +660,9 @@ aware_fixed_country_match <- aware_fixed_country |>
         country == "Hong Kong"                            ~ "Hong Kong SAR, China",
         country == "Lao People's Democratic Republic"     ~ "Lao PDR",
         country == "Slovakia"                             ~ "Slovak Republic",
-        country == "North MAcedonia"                      ~ "North Macedonia",
+        country == "North Macedonia"                      ~ "North Macedonia",
         country == "South Korea"                          ~ "Korea, Rep.",
-        country == "Turkey"                               ~ "Türkiye",
+        country == "Turkey"                               ~ "Turkey",
         country == "Vietnam"                              ~ "Viet Nam",
         country == "Yemen"                                ~ "Yemen, Rep.",
         TRUE ~ country
