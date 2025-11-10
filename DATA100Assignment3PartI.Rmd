@@ -750,9 +750,6 @@ covid_2020_match_country <- covid_2020_fixed |>
   semi_join(aware_pop, by = "country")
 covid_2020_match_country
 
-nrow(covid_2020_match_country)
-
-
 ```
 
 ```{r}
