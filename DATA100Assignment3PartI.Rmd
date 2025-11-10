@@ -820,13 +820,12 @@ To make the data more convenient for Part 2, perform the following operations. T
 ```{r happiness}
 happiness <- read.xlsx("DataForTable2.1.xlsx") |>
     # YOUR CODE HERE
-    clean_names() |>
-    rename(country = country_name) |>
-    filter(!is.na(ladder_score)) |>
-    arrange(country, year) |>
-    group_by(country) |>
-    slice_tail(n = 1) |>
-    ungroup()
+  clean_names() |>
+  rename(country = country_name) |>
+  filter(!is.na(ladder_score)) |>
+  group_by(country) |>
+  slice_max(order_by = year, n = 1, with_ties = FALSE) |>
+  ungroup()
 happiness
 ```
 ```{r}
