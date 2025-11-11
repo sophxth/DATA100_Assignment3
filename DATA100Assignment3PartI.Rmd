@@ -666,7 +666,7 @@ aware_fixed_country_match <- aware_fixed_country |>
         country == "Turkey"                                 ~ "Turkiye",
         country == "Vietnam"                                ~ "Viet Nam",
         country == "Yemen"                                  ~ "Yemen, Rep.",
-        country == "Puerto Rico"                            ~ "Puerto Rico (US)",
+        # country == "Puerto Rico"                            ~ "Puerto Rico (US)",
         TRUE ~ country
     )
   )
