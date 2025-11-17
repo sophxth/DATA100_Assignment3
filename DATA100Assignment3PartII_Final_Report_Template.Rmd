@@ -8,9 +8,8 @@ output: pdf_document
 
 List your group members, including their student numbers, here:
 
--   John K. Samson (\#########)
--   John Darnielle (\#########)
--   Craig Finn (\#########)
+- Sophia Thai (\#169112540)
+- Kaya Darling
 
 
 # Data Description
