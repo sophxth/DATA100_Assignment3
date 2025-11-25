@@ -1,7 +1,7 @@
 ---
 title: "TITLE OF YOUR PROJECT"
 subtitle: "Exploring Disparate Data: Part 3 - Final Report"
-author: "Put your group name here: (anyname that is fancy and funny)"
+author: "Put your group name here: The Geese"
 date: "Due November 26th, 2025"
 output: pdf_document
 ---
