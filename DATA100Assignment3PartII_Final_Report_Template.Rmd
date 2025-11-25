@@ -9,7 +9,7 @@ output: pdf_document
 List your group members, including their student numbers, here:
 
 - Sophia Thai (\#169112540)
-- Kaya Darling (\)
+- Kaya Darling (\#169112257)
 
 
 # Data Description
