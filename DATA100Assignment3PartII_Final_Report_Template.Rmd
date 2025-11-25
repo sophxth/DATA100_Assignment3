@@ -1,7 +1,7 @@
 ---
 title: "TITLE OF YOUR PROJECT"
 subtitle: "Exploring Disparate Data: Part 3 - Final Report"
-author: "Put your group name here: (anyname that is fancy and funny)"
+author: "Put your group name here: the geese"
 date: "Due November 26th, 2025"
 output: pdf_document
 ---
@@ -9,7 +9,7 @@ output: pdf_document
 List your group members, including their student numbers, here:
 
 - Sophia Thai (\#169112540)
-- Kaya Darling
+- Kaya Darling(\#169112257)
 
 
 # Data Description
@@ -24,6 +24,23 @@ List your group members, including their student numbers, here:
 # when you click "knit", so the placement of this code
 # chunk is purely for your benefit: You can see what happened
 # with your data, which makes it easier to describe below!
+climate_awareness <- read_parquet("climate_awareness.parquet")
+climate_awareness_clean <- climate_awareness |>
+  mutate(
+    country = str_replace_all(country, "\\.", " "),
+    country = case_when(
+      country == "Bolivia (Plurinational State of)" ~ "Bolivia",
+      country == "Congo (Democratic Republic of the)" ~ "Democratic Republic of Congo",
+      country == "Lao People's Democratic Republic" ~ "Laos",
+      country == "North MAcedonia" ~ "North Macedonia",
+      country == "South Korea" ~ "Korea, Rep.",
+      country == "Turkey" ~ "Turkiye",
+      country == "Vietnam" ~ "Viet Nam",
+      country == "Yemen" ~ "Yemen, Rep.",
+      TRUE ~ country
+    )
+  )
+
 ```
 
 The data come from \<<place>\> and describe \<<more specific description of the data>\>.
@@ -38,6 +55,12 @@ In order to clean the data, we \<\<steps to clean the data, concise but precise 
 
 # Reminder: do NOT print your data to the screen unless it's
 # completely necessary
+covid_2020 <- read_parquet("covid_2020.parquet")
+
+climate_covid <- climate_awareness |>
+  inner_join(covid_2020 |>
+               select(country, continent, total_cases), by = "country")
+
 ```
 
 The data come from \<<place>\> and detail \<<more specific description of the data>\>.
@@ -49,6 +72,7 @@ In order to clean the data, we \<\<steps to clean the data, concise but precise 
 ```{r load_data3}
 # Put in your code to load in the data set, along with any
 # necessary cleaning beyond what was done in Part 1
+happiness <- read_parquet("happiness.parquet")
 ```
 
 The data come from \<<place>\> and detail \<<more specific description of the data>\>.
