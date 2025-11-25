@@ -8,8 +8,6 @@ output: pdf_document
         toc: false
 ---
 
-      bookdown::pdf_document2:
-        toc: false
 List your group members, including their student numbers, here:
 - Sophia Thai (\#169112540)
 - Kaya Darling(\#169112257)
