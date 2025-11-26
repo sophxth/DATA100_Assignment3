@@ -1,11 +1,11 @@
 ---
-title: "TITLE OF YOUR PROJECT"
+title: "Exploring Disparate Data: Part 3 - Final Report"
 subtitle: "Exploring Disparate Data: Part 3 - Final Report"
 author: "Put your group name here: The Geese"
 date: "Due November 26th, 2025"
-output: pdf_document
-      bookdown::pdf_document2
-        toc: false
+output:
+  bookdown::pdf_document2:
+    toc: false
 ---
 
 List your group members, including their student numbers, here:
