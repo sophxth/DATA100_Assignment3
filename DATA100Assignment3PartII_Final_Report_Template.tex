@@ -254,9 +254,9 @@ In order to clean the data, we didn't have to do any cleaning, as it was already
 
 \subsection{Combining the Data}\label{combining-the-data}
 
-We first joined climate awareness data to covid data by selecting only columns ``country'', ``continent'', and ``total\_cases''. Then, we used inner\_join to join those columns of the covid 2020 data with the climate awareness data.
+We first joined climate awareness data to covid data by selecting only columns ``country'', ``continent'', and \texttt{total\_cases}. Then, we used \texttt{inner\textbackslash{}\_join} to join those columns of the covid 2020 data with the climate awareness data.
 
-For combining happiness data to climate awareness and covid data, we joined this data to the data set climate\_covid, which was made from joining the previous two data sets. We used inner\_join to join the columns ``country'' and ``ladder\_score'' from happiness to the climate awareness and covid data.
+For combining happiness data with climate awareness and covid data, we joined this data to the data set \texttt{climate\_covid}, which was made from joining the previous two data sets. We used \texttt{inner\_join()} to join the columns \texttt{"country"} and \texttt{"ladder\_score"} from the happiness data to the climate awareness and covid data.
 
 \section{Exploratory Data Analysis}\label{exploratory-data-analysis}
 

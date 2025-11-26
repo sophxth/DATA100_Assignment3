@@ -95,9 +95,9 @@ In order to clean the data, we didn't have to do any cleaning, as it was already
 
 ## Combining the Data
 
-We first joined climate awareness data to covid data by selecting only columns "country", "continent", and "total\_cases". Then, we used inner\_join to join those columns of the covid 2020 data with the climate awareness data. 
+We first joined climate awareness data to covid data by selecting only columns "country", "continent", and `total_cases`. Then, we used `inner\_join` to join those columns of the covid 2020 data with the climate awareness data. 
  
-For combining happiness data to climate awareness and covid data, we joined this data to the data set climate_covid, which was made from joining the previous two data sets. We used inner\_join to join the columns "country" and "ladder\_score" from happiness to the climate awareness and covid data.
+For combining happiness data with climate awareness and covid data, we joined this data to the data set `climate_covid`, which was made from joining the previous two data sets. We used `inner_join()` to join the columns `"country"` and `"ladder_score"` from the happiness data to the climate awareness and covid data.
 
 # Exploratory Data Analysis
 
@@ -107,14 +107,20 @@ We explored many aspects of the data, but will demonstrate three. These are: in 
 
 The first aspect that we found interesting is shown in this scatterplot. The insight should be specific to the data shown, not a general statement beyond the data (leave that for the conclusion).
 
-```{r insight1, fig.cap="CHANGE CAPTION!!!!!!!!!"}
+```{r insight1, fig.cap="Relationship between climate awareness and covid cases"}
 # This is an example of how you can control figures and captions in
 # an R chunk. Note that you can reference figures using:
 # \@ref(fig:insight1), where "insight1" is the label of this code
 # chunk (the first bit of text after the "r" in "```{r label, options...}")
-ggplot(data = climate_covid_happiness, aes(x = aware_alot, y = total_cases)) + 
+ggplot(data = climate_covid_happiness, 
+       aes(x = aware_alot, y = total_cases)) + 
   geom_point(alpha = 0.6) +
-  geom_smooth(method = "lm", se = FALSE)
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    x = "Climate awareness score",
+    y = "Total COVID-19 cases"
+  )
+
 ```
 We observe a positive relationship between the percentage of respondents who reported “I know a lot about climate change” and the total number of COVID-19 cases. This pattern does not imply that climate awareness causes higher case counts; rather, it reflects broader national characteristics. Countries with stronger education systems and greater access to information tend to show higher levels of climate awareness. These same countries also typically have higher population densities, more international travel, and more comprehensive COVID-19 testing and reporting infrastructure. Together, these factors produce the positive trend observed in the data.
 
@@ -145,7 +151,7 @@ kable(
 
 The next insight that we found is shown in \@ref(fig:insight2).
 
-```{r insight2, fig.height=4, fig.width=6, fig.cap="This is a figure caption that you will need to change in order to get good marks in the visualization rubric items."}
+```{r insight2, fig.height=4, fig.width=6, fig.cap="Happiness scores by climate awareness quartile"}
 # This figure will have a height of 4 and a width of 6.
 # Feel free to change this, and to apply different sizes
 # to the other figures you create.
@@ -157,7 +163,7 @@ ggplot(data_for_plot,
   labs(
     x = "Awareness quartile (from lowest to highest)",
     y = "Happiness (Ladder Score)",
-    fill = "Awareness Group, \nfrom lowest to highest"
+    fill = "Awareness Group (lowest to highest)"
   ) + 
   theme_minimal()
 ```
@@ -166,7 +172,7 @@ This boxplot shows a clear upward trend, indicating that countries with greater 
 
 Finally, \@ref(fig:insight3) shows ...
 
-```{r insight3, fig.height=4, fig.width=6, fig.cap="This is a figure caption that you will need to change in order to get good marks in the visualization rubric items."}
+```{r insight3, fig.height=4, fig.width=6, fig.cap="Average happiness score by COVID-19 case quartile."}
 
 insight3_data <- climate_covid_happiness |>
   mutate(case_group = ntile(total_cases, 4)) |>
@@ -183,7 +189,7 @@ ggplot(insight3_data,
   labs(
     x = "COVID-19 case quartile (from lowest to highest)",
     y = "Average Happiness (Ladder Score)",
-    fill = "Case\nQuartile"
+    fill = "Case Quartile (1-4)"
   ) +
   theme_minimal()
 ```
