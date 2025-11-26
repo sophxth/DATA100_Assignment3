@@ -15,7 +15,7 @@ List your group members, including their student numbers, here:
 
 # Data Description
 
-## \<\<Data Set 1\>\>
+## Climate Change Awareness Data
 
 ```{r load_data1}
 # Put in your code to load in the data set, along with any
@@ -44,11 +44,11 @@ climate_awareness_cleaned <- climate_awareness |>
 
 ```
 
-The data come from \<<place>\> and describe \<<more specific description of the data>\>.
+The data come from HDX (Humanitarian Data Exchange) and describes the responses to a survey in 2022 from the Meta Climate Change Opinion Survey. This survey asked people in many different countries their level of awareness on climate change and recorded their responses. The people doing the survey had the option to choose between different statements that represented their awareness of climate change. For example, if they we not aware at all the participant would select "I have never heard of it".  
 
-In order to clean the data, we \<\<steps to clean the data, concise but precise enough that a reader could follow your steps without seeing your code\>\>.
+In order to clean the data, we first adjusted so that all of the periods in between name were removed and replaced with spaces. Then, we adjusted the country names that were called something different from their name in the other data sets to match the other data sets country names. This was to ensure that in joining everything goes smoothly.
 
-## \<\<Data Set 2\>\>
+## Covid 2020 Cases Data
 
 ```{r load_data2}
 # Put in your code to load in the data set, along with any
@@ -72,11 +72,11 @@ climate_covid <- climate_awareness_cleaned |>
                select(country, continent, total_cases), by = "country")
 ```
 
-The data come from \<<place>\> and detail \<<more specific description of the data>\>.
+The data come from the Our World in Data COVID_19 database and detail the number of covid cases in each country in 2020, recorded daily.
 
-In order to clean the data, we \<\<steps to clean the data, concise but precise enough that a reader could follow your steps without seeing your code\>\>
+In order to clean the data, we adjusted some of the names to match the climate awareness data by changing some of the names of certain countries so that they all match.
 
-## \<\<Data Set 3\>\>
+## World Happiness Report Data
 
 ```{r load_data3}
 # Put in your code to load in the data set, along with any
@@ -86,27 +86,32 @@ climate_covid_happiness <- climate_covid |>
   inner_join(happiness |> select(country, ladder_score), by = "country")
 ```
 
-The data come from \<<place>\> and detail \<<more specific description of the data>\>.
+This data comes from the World Happiness Report from 2023 and detail how people responded to a question about the "Life Ladder" about how they rate their overall life satisfaction from 0 to 10. The data has the overall well being of a country depending on how participants from these countries rated their life on the ladder. 
 
-In order to clean the data, we \<\<steps to clean the data, concise but precise enough that a reader could follow your steps without seeing your code\>\>
+In order to clean the data, we didn't have to do any cleaning, as it was already clean from part 1! 
 
 ## Combining the Data
 
-Explain how any combinations of data were performed. Explain what kind of join was needed, whether columns had to be modified (for example, matching "country" names.)
+We first joined climate awareness data to covid data by selecting only columns "country", "continent", and "total_cases". Then, we used inner_join to join those columns of the covid 2020 data with the climate awareness data. 
+ 
+For combining happiness data to climate awareness and covid data, we joined this data to the data set climate_covid, which was made from joining the previous two data sets. We used inner_join to join the columns "country" and "ladder_score" from happiness to the climate awareness and covid data.  
 
 # Exploratory Data Analysis
 
 To achieve our goals, we explored the data by...
 
-We explored many aspects of the data, but will demonstrate three. These are \<\<insight 1\>\>, \<\<insight 2\>\>, and \<<insight3>\>
+We explored many aspects of the data, but will demonstrate three. These are: in countries with higher covid cases there are more people reporting high climate awareness, countries with higher climate awareness are happier, and countries with higher covid cases are also happier
 
-The first aspect that we found interesting is shown in \@ref(fig:insight1). The insight should be specific to the data shown, not a general statement beyond the data (leave that for the conclusion).
+The first aspect that we found interesting is shown in this scatterplot. The insight should be specific to the data shown, not a general statement beyond the data (leave that for the conclusion).
 
-```{r insight1, fig.cap="This is a figure caption that you will need to change in order to get good marks in the visualization rubric items."}
+```{r Covid vs Climate Awareness, fig.cap="CHANGE CAPTION!!!!!!!!!"}
 # This is an example of how you can control figures and captions in
 # an R chunk. Note that you can reference figures using:
 # \@ref(fig:insight1), where "insight1" is the label of this code
 # chunk (the first bit of text after the "r" in "```{r label, options...}")
+ggplot(data = climate_covid_happiness, aes(x = aware_alot, y = total_cases)) + 
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", se = FALSE)
 ```
 
 This insight is supported by the summary statistics in table \@ref(tab:summary_stats)
@@ -117,6 +122,21 @@ This insight is supported by the summary statistics in table \@ref(tab:summary_s
 # is convenient for making nice tables. Other packages can
 # do much fancier things with tables, but keep in mind that
 # the insights should be the star, not the formatting.
+library(dplyr)
+library(knitr)
+
+summary_stats <- climate_covid_happiness |>
+  summarise(
+    correlation = cor(aware_alot, total_cases)
+  ) |>
+  mutate(metric = "Correlation") |>
+  select(metric, correlation)
+
+kable(
+  summary_stats,
+  digits = 3,
+  caption = "Correlation between high climate awareness and total covid cases."
+)
 ```
 
 The next insight that we found is shown in \@ref(fig:insight2).
