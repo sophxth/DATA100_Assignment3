@@ -116,6 +116,7 @@ ggplot(data = climate_covid_happiness, aes(x = aware_alot, y = total_cases)) +
   geom_point(alpha = 0.6) +
   geom_smooth(method = "lm", se = FALSE)
 ```
+We observe a positive relationship between the percentage of respondents who reported “I know a lot about climate change” and the total number of COVID-19 cases. This pattern does not imply that climate awareness causes higher case counts; rather, it reflects broader national characteristics. Countries with stronger education systems and greater access to information tend to show higher levels of climate awareness. These same countries also typically have higher population densities, more international travel, and more comprehensive COVID-19 testing and reporting infrastructure. Together, these factors produce the positive trend observed in the data.
 
 This insight is supported by the summary statistics in table \@ref(tab:summary_stats)
 
@@ -161,6 +162,8 @@ ggplot(data_for_plot,
   theme_minimal()
 ```
 
+This boxplot shows a clear upward trend, indicating that countries with greater climate awareness tend to have higher reported happiness scores. This pattern likely reflects broader structural differences rather than a direct causal relationship. Countries with higher climate awareness often also have better access to education, higher GDP, more stable institutions, and stronger scientific and media communication systems. These underlying factors contribute both to increased awareness of climate issues and to higher Life Ladder scores, which helps explain the positive association observed in the data.
+
 Finally, \@ref(fig:insight3) shows ...
 
 ```{r insight3, fig.height=4, fig.width=6, fig.cap="This is a figure caption that you will need to change in order to get good marks in the visualization rubric items."}
@@ -184,16 +187,17 @@ ggplot(insight3_data,
   ) +
   theme_minimal()
 ```
+Surprisingly, countries in the highest COVID-case quartile also report the highest average happiness. This counterintuitive pattern can be explained by the fact that regions such as Western Europe, North America, Australia, and parts of East Asia both experienced high reported case counts and consistently rank among the highest on the Life Ladder. In contrast, many countries with limited testing capacity reported fewer cases but also tend to have lower happiness scores. As a result, the association between higher case counts and higher happiness is indirect and largely reflects differences in economic development and infrastructure rather than any meaningful effect of COVID-19 itself.
 
 # Conclusion and Future Work
 
-Overall, we found \<<general ideas>\>.
+Overall, we found three consistent patterns across the disparate datasets. First, countries with more reported COVID-19 cases tend to show higher levels of climate awareness. This likely reflects stronger education systems, more robust scientific communication, and better reporting capacity in more developed regions. Second, higher climate awareness is associated with higher national happiness, suggesting that climate literacy may be part of a broader set of educational, social, and institutional advantages that contribute to well-being. Third, countries with the highest numbers of COVID-19 cases also rank among the happiest. Rather than indicating any causal relationship, this pattern appears to be driven by differences in economic development: wealthier countries both test more extensively and consistently report higher Life Ladder scores. Together, these findings suggest that global indicators such as public health outcomes, climate awareness, and subjective well-being are interconnected through underlying socioeconomic structures.
 
-A second paragraph about our findings.
+For future work, several extensions could strengthen this analysis. Incorporating variables such as GDP, literacy rates, or education indexes would help control for differences in development and allow for a clearer interpretation of the relationships observed. Multiple regression models could be used to distinguish direct from indirect effects across variables. Further work might also explore whether higher climate awareness predicts stronger support for climate policy or behavioral change at the national level. Additionally, explicitly including population size—through metrics like COVID-19 cases per capita—could improve the comparability of countries with very different populations.
 
-The next steps in this analysis are...
+This analysis also has several limitations. Measures of climate awareness rely on self-reported survey responses, which may be influenced by sampling quality and respondent honesty. Data inconsistencies, such as mismatched country names, require manual cleaning and may result in the exclusion of some countries. COVID-19 case data are affected by differences in testing capacity, meaning that wealthier countries often appear to have more cases simply because they tested more extensively. Most importantly, the relationships identified are correlational rather than causal; they reflect deeper structural factors rather than direct effects between the variables. Finally, sample sizes vary considerably across countries, which may affect the stability of group comparisons.
 
-The limitations of this analysis are as follows. (Do not simply list potential issues with sampling, but relate them to your analysis and how they affect your conclusions. An honest and complete acknowledgement of the limitations makes the analysis more trustworthy.)
+Despite these limitations, our findings highlight meaningful and interpretable patterns across global climate literacy, public health outcomes, and well-being. The integration of disparate datasets provides valuable insight into how social, economic, and institutional factors shape international trends in awareness, happiness, and reported health data.
 
 # References
 
