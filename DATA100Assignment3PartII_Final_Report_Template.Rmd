@@ -26,7 +26,7 @@ List your group members, including their student numbers, here:
 # chunk is purely for your benefit: You can see what happened
 # with your data, which makes it easier to describe below!
 climate_awareness <- read_parquet("climate_awareness.parquet")
-climate_awareness_clean <- climate_awareness |>
+climate_awareness_cleaned <- climate_awareness |>
   mutate(
     country = str_replace_all(country, "\\.", " "),
     country = case_when(
@@ -56,12 +56,20 @@ In order to clean the data, we \<\<steps to clean the data, concise but precise 
 
 # Reminder: do NOT print your data to the screen unless it's
 # completely necessary
-covid_2020 <- read_parquet("covid_2020.parquet")
-
-climate_covid <- climate_awareness |>
-  inner_join(covid_2020 |>
+covid_2020 <- read_parquet("covid_2020.parquet") 
+covid_2020_cleaned <- covid_2020 |> 
+  mutate( country = case_when(
+    country == "Democratic Republic of Congo" ~ "Democratic Republic of Congo", 
+    country == "Egypt" ~ "Egypt, Arab Rep.", 
+    country == "Hong Kong" ~ "Hong Kong SAR, China", 
+    country == "Laos" ~ "Laos", country == "Slovakia" ~ "Slovak Republic", 
+    country == "South Korea" ~ "Korea, Rep.", country == "Turkey" ~ "Turkiye", 
+    country == "Vietnam" ~ "Viet Nam", 
+    country == "Yemen" ~ "Yemen, Rep.", 
+    TRUE ~ country ) ) 
+climate_covid <- climate_awareness_cleaned |> 
+  inner_join(covid_2020_cleaned |> 
                select(country, continent, total_cases), by = "country")
-
 ```
 
 The data come from \<<place>\> and detail \<<more specific description of the data>\>.
@@ -74,6 +82,8 @@ In order to clean the data, we \<\<steps to clean the data, concise but precise 
 # Put in your code to load in the data set, along with any
 # necessary cleaning beyond what was done in Part 1
 happiness <- read_parquet("happiness.parquet")
+climate_covid_happiness <- climate_covid |> 
+  inner_join(happiness |> select(country, ladder_score), by = "country")
 ```
 
 The data come from \<<place>\> and detail \<<more specific description of the data>\>.
