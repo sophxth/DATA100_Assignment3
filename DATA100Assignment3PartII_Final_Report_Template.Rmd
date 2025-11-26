@@ -104,7 +104,7 @@ We explored many aspects of the data, but will demonstrate three. These are: in 
 
 The first aspect that we found interesting is shown in this scatterplot. The insight should be specific to the data shown, not a general statement beyond the data (leave that for the conclusion).
 
-```{r Covid vs Climate Awareness, fig.cap="CHANGE CAPTION!!!!!!!!!"}
+```{r insight1, fig.cap="CHANGE CAPTION!!!!!!!!!"}
 # This is an example of how you can control figures and captions in
 # an R chunk. Note that you can reference figures using:
 # \@ref(fig:insight1), where "insight1" is the label of this code
@@ -145,11 +145,41 @@ The next insight that we found is shown in \@ref(fig:insight2).
 # This figure will have a height of 4 and a width of 6.
 # Feel free to change this, and to apply different sizes
 # to the other figures you create.
+data_for_plot <- climate_covid_happiness |>
+  mutate(awareness_group = ntile(aware_alot, 4))
+ggplot(data_for_plot,
+       aes(x = factor(awareness_group), y = ladder_score, fill = factor(awareness_group))) +
+  geom_boxplot() +
+  labs(
+    x = "Awareness quartile (from lowest to highest)",
+    y = "Happiness (Ladder Score)",
+    fill = "Awareness Group, \nfrom lowest to highest"
+  ) + 
+  theme_minimal()
 ```
 
 Finally, \@ref(fig:insight3) shows ...
 
 ```{r insight3, fig.height=4, fig.width=6, fig.cap="This is a figure caption that you will need to change in order to get good marks in the visualization rubric items."}
+
+insight3_data <- climate_covid_happiness |>
+  mutate(case_group = ntile(total_cases, 4)) |>
+  group_by(case_group) |>
+  summarise(
+    mean_happiness = mean(ladder_score, na.rm = TRUE),
+    n = n()
+  )
+
+ggplot(insight3_data,
+       aes(x = factor(case_group), y = mean_happiness, 
+           fill = factor(case_group))) +
+  geom_col() +
+  labs(
+    x = "COVID-19 case quartile (from lowest to highest)",
+    y = "Average Happiness (Ladder Score)",
+    fill = "Case\nQuartile"
+  ) +
+  theme_minimal()
 ```
 
 # Conclusion and Future Work
