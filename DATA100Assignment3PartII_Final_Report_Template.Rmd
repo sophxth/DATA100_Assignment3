@@ -1,5 +1,5 @@
 ---
-title: "Exploring Disparate Data: Part 3 - Final Report"
+title: ""
 subtitle: "Exploring Disparate Data: Part 3 - Final Report"
 author: "Put your group name here: The Geese"
 date: "Due November 26th, 2025"
@@ -94,10 +94,9 @@ This data comes from the World Happiness Report from 2023 and detail how people 
 In order to clean the data, we didn't have to do any cleaning, as it was already clean from part 1! 
 
 ## Combining the Data
-
-We first joined climate awareness data to covid data by selecting only columns "country", "continent", and `total_cases`. Then, we used `inner\_join` to join those columns of the covid 2020 data with the climate awareness data. 
+We first joined climate awareness data to covid data by selecting only columns "country", "continent", and `total\_cases`. Then, we used `inner\_join` to join those columns of the covid 2020 data with the climate awareness data. 
  
-For combining happiness data with climate awareness and covid data, we joined this data to the data set `climate_covid`, which was made from joining the previous two data sets. We used `inner_join()` to join the columns `"country"` and `"ladder_score"` from the happiness data to the climate awareness and covid data.
+For combining happiness data with climate awareness and covid data, we joined this data to the data set `climate\_covid`, which was made from joining the previous two data sets. We used `inner\_join()` to join the columns `"country"` and `"ladder\_score"` from the happiness data to the climate awareness and covid data.
 
 # Exploratory Data Analysis
 
@@ -145,7 +144,8 @@ summary_stats <- climate_covid_happiness |>
 kable(
   summary_stats,
   digits = 3,
-  caption = "Correlation between high climate awareness and total covid cases."
+  caption = "Correlation between high climate awareness and total covid cases"
+
 )
 ```
 
@@ -207,14 +207,12 @@ Despite these limitations, our findings highlight meaningful and interpretable p
 
 # References
 
-I am not strict about MLA or APA style or anything like that. For this report, I would much rather have your citations be easy to match to your insights.
+[^1]: Meta. (2022). Meta Climate Change Opinion Survey 2022 [Data set]. Humanitarian Data Exchange (HDX). https://data.humdata.org/dataset/meta-climate-change-opinion-survey
 
-The easiest way is to use Rmd's [footnote](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html#inline-formatting) syntax. This will put a number beside the word where the footnote appears, and the full text of the footnote at the bottom of the page (pdf) or end of the document (html). The syntax is:[^1], where I suggest that you put in something like this[^2] to make references for this assignment.
+[^2]: Ritchie, H., Mathieu, E., Rodés-Guirao, L., Appel, C., Giattino, C., Ortiz-Ospina, E., Hasell, J., Macdonald, B., Beltekian, D., & Roser, M. (2020). Coronavirus pandemic (COVID-19) [Data set]. Our World in Data. https://ourworldindata.org/coronavirus
 
-[^1]: See the source view to see this footnote
+[^3]: Helliwell, J. F., Layard, R., Sachs, J. D., & De Neve, J.-E. (2023). World Happiness Report 2023 [Data set]. Sustainable Development Solutions Network. https://worldhappiness.report
 
-[^2]: The relevance to the insight is ... . From \<<name of source and name of article>\>, published on \<<date>\>, url: \<<link to page>\>
+[^4]: The World Bank. (2023). Country and lending groups [Data set]. https://datahelpdesk.worldbank.org/knowledgebase/articles/906519
 
-Alternatively, you could make a list of citations with their main arguments and why they're relevent to your insights, methods, etc.
-
-The link above also references "bibtex" files. These are also extremely convenient, but have a steep learning curve and they make it difficult to tie them to an insight. If you use bibtext, then make sure that you provide a sentence to describe the source and it's relevance when you cite it - don't just add citations to the end of a sentence (this is common practice in academia, but I want to know that your citations are directly relevant for this assignmnet).
+[^5]: United Nations Development Programme. (2023). Human Development Report 2023 [Data set]. https://hdr.undp.org

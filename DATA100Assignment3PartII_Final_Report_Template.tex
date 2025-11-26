@@ -272,9 +272,14 @@ The first aspect that we found interesting is shown in this scatterplot. The ins
 \CommentTok{\# an R chunk. Note that you can reference figures using:}
 \CommentTok{\# \textbackslash{}@ref(fig:insight1), where "insight1" is the label of this code}
 \CommentTok{\# chunk (the first bit of text after the "r" in "\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r label, options...\}")}
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ climate\_covid\_happiness, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ aware\_alot, }\AttributeTok{y =}\NormalTok{ total\_cases)) }\SpecialCharTok{+} 
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ climate\_covid\_happiness, }
+       \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ aware\_alot, }\AttributeTok{y =}\NormalTok{ total\_cases)) }\SpecialCharTok{+} 
   \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{)}
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{x =} \StringTok{"Climate awareness score"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Total COVID{-}19 cases"}
+\NormalTok{  )}
 \end{Highlighting}
 \end{Shaded}
 
@@ -340,7 +345,7 @@ The next insight that we found is shown in \ref{fig:insight2}.
   \FunctionTok{labs}\NormalTok{(}
     \AttributeTok{x =} \StringTok{"Awareness quartile (from lowest to highest)"}\NormalTok{,}
     \AttributeTok{y =} \StringTok{"Happiness (Ladder Score)"}\NormalTok{,}
-    \AttributeTok{fill =} \StringTok{"Awareness Group, }\SpecialCharTok{\textbackslash{}n}\StringTok{from lowest to highest"}
+    \AttributeTok{fill =} \StringTok{"Awareness Group (lowest to highest)"}
 \NormalTok{  ) }\SpecialCharTok{+} 
   \FunctionTok{theme\_minimal}\NormalTok{()}
 \end{Highlighting}
@@ -349,7 +354,7 @@ The next insight that we found is shown in \ref{fig:insight2}.
 \begin{figure}
 \centering
 \pandocbounded{\includegraphics[keepaspectratio]{DATA100Assignment3PartII_Final_Report_Template_files/figure-latex/insight2-1.pdf}}
-\caption{\label{fig:insight2}This is a figure caption that you will need to change in order to get good marks in the visualization rubric items.}
+\caption{\label{fig:insight2}Happiness scores by climate awareness quartile}
 \end{figure}
 
 This boxplot shows a clear upward trend, indicating that countries with greater climate awareness tend to have higher reported happiness scores. This pattern likely reflects broader structural differences rather than a direct causal relationship. Countries with higher climate awareness often also have better access to education, higher GDP, more stable institutions, and stronger scientific and media communication systems. These underlying factors contribute both to increased awareness of climate issues and to higher Life Ladder scores, which helps explain the positive association observed in the data.
@@ -373,7 +378,7 @@ Finally, \ref{fig:insight3} shows \ldots{}
   \FunctionTok{labs}\NormalTok{(}
     \AttributeTok{x =} \StringTok{"COVID{-}19 case quartile (from lowest to highest)"}\NormalTok{,}
     \AttributeTok{y =} \StringTok{"Average Happiness (Ladder Score)"}\NormalTok{,}
-    \AttributeTok{fill =} \StringTok{"Case}\SpecialCharTok{\textbackslash{}n}\StringTok{Quartile"}
+    \AttributeTok{fill =} \StringTok{"Case Quartile (1{-}4)"}
 \NormalTok{  ) }\SpecialCharTok{+}
   \FunctionTok{theme\_minimal}\NormalTok{()}
 \end{Highlighting}
