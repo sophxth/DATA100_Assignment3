@@ -25,6 +25,9 @@ List your group members, including their student numbers, here:
 # when you click "knit", so the placement of this code
 # chunk is purely for your benefit: You can see what happened
 # with your data, which makes it easier to describe below!
+library(tidyverse)
+library(arrow)
+
 climate_awareness <- read_parquet("climate_awareness.parquet")
 climate_awareness_cleaned <- climate_awareness |>
   mutate(

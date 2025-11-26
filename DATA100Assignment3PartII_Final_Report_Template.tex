@@ -1,0 +1,409 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Exploring Disparate Data: Part 3 - Final Report},
+  pdfauthor={Put your group name here: The Geese},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Exploring Disparate Data: Part 3 - Final Report}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Exploring Disparate Data: Part 3 - Final Report}
+\author{Put your group name here: The Geese}
+\date{Due November 26th, 2025}
+
+\begin{document}
+\maketitle
+
+List your group members, including their student numbers, here:
+- Sophia Thai (\#169112540)
+- Kaya Darling(\#169112257)
+
+\section{Data Description}\label{data-description}
+
+\subsection{Climate Change Awareness Data}\label{climate-change-awareness-data}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Put in your code to load in the data set, along with any}
+\CommentTok{\# necessary cleaning beyond what was done in Part 1}
+
+\CommentTok{\# Note that the code in this document will not be shown}
+\CommentTok{\# when you click "knit", so the placement of this code}
+\CommentTok{\# chunk is purely for your benefit: You can see what happened}
+\CommentTok{\# with your data, which makes it easier to describe below!}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.4     v readr     2.1.5
+## v forcats   1.0.0     v stringr   1.5.2
+## v ggplot2   4.0.0     v tibble    3.3.0
+## v lubridate 1.9.4     v tidyr     1.3.1
+## v purrr     1.1.0     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(arrow)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'arrow'
+## 
+## The following object is masked from 'package:lubridate':
+## 
+##     duration
+## 
+## The following object is masked from 'package:utils':
+## 
+##     timestamp
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{climate\_awareness }\OtherTok{\textless{}{-}} \FunctionTok{read\_parquet}\NormalTok{(}\StringTok{"climate\_awareness.parquet"}\NormalTok{)}
+\NormalTok{climate\_awareness\_cleaned }\OtherTok{\textless{}{-}}\NormalTok{ climate\_awareness }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{country =} \FunctionTok{str\_replace\_all}\NormalTok{(country, }\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{."}\NormalTok{, }\StringTok{" "}\NormalTok{),}
+    \AttributeTok{country =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{      country }\SpecialCharTok{==} \StringTok{"Bolivia (Plurinational State of)"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Bolivia"}\NormalTok{,}
+\NormalTok{      country }\SpecialCharTok{==} \StringTok{"Congo (Democratic Republic of the)"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Democratic Republic of Congo"}\NormalTok{,}
+\NormalTok{      country }\SpecialCharTok{==} \StringTok{"Lao People\textquotesingle{}s Democratic Republic"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Laos"}\NormalTok{,}
+\NormalTok{      country }\SpecialCharTok{==} \StringTok{"North MAcedonia"} \SpecialCharTok{\textasciitilde{}} \StringTok{"North Macedonia"}\NormalTok{,}
+\NormalTok{      country }\SpecialCharTok{==} \StringTok{"South Korea"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Korea, Rep."}\NormalTok{,}
+\NormalTok{      country }\SpecialCharTok{==} \StringTok{"Turkey"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Turkiye"}\NormalTok{,}
+\NormalTok{      country }\SpecialCharTok{==} \StringTok{"Vietnam"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Viet Nam"}\NormalTok{,}
+\NormalTok{      country }\SpecialCharTok{==} \StringTok{"Yemen"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Yemen, Rep."}\NormalTok{,}
+      \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ country}
+\NormalTok{    )}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+The data come from HDX (Humanitarian Data Exchange) and describes the responses to a survey in 2022 from the Meta Climate Change Opinion Survey. This survey asked people in many different countries their level of awareness on climate change and recorded their responses. The people doing the survey had the option to choose between different statements that represented their awareness of climate change. For example, if they we not aware at all the participant would select ``I have never heard of it''.
+
+In order to clean the data, we first adjusted so that all of the periods in between name were removed and replaced with spaces. Then, we adjusted the country names that were called something different from their name in the other data sets to match the other data sets country names. This was to ensure that in joining everything goes smoothly.
+
+\subsection{Covid 2020 Cases Data}\label{covid-2020-cases-data}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Put in your code to load in the data set, along with any}
+\CommentTok{\# necessary cleaning beyond what was done in Part 1}
+
+\CommentTok{\# Reminder: do NOT print your data to the screen unless it\textquotesingle{}s}
+\CommentTok{\# completely necessary}
+\NormalTok{covid\_2020 }\OtherTok{\textless{}{-}} \FunctionTok{read\_parquet}\NormalTok{(}\StringTok{"covid\_2020.parquet"}\NormalTok{) }
+\NormalTok{covid\_2020\_cleaned }\OtherTok{\textless{}{-}}\NormalTok{ covid\_2020 }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{( }\AttributeTok{country =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{    country }\SpecialCharTok{==} \StringTok{"Democratic Republic of Congo"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Democratic Republic of Congo"}\NormalTok{, }
+\NormalTok{    country }\SpecialCharTok{==} \StringTok{"Egypt"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Egypt, Arab Rep."}\NormalTok{, }
+\NormalTok{    country }\SpecialCharTok{==} \StringTok{"Hong Kong"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Hong Kong SAR, China"}\NormalTok{, }
+\NormalTok{    country }\SpecialCharTok{==} \StringTok{"Laos"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Laos"}\NormalTok{, country }\SpecialCharTok{==} \StringTok{"Slovakia"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Slovak Republic"}\NormalTok{, }
+\NormalTok{    country }\SpecialCharTok{==} \StringTok{"South Korea"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Korea, Rep."}\NormalTok{, country }\SpecialCharTok{==} \StringTok{"Turkey"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Turkiye"}\NormalTok{, }
+\NormalTok{    country }\SpecialCharTok{==} \StringTok{"Vietnam"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Viet Nam"}\NormalTok{, }
+\NormalTok{    country }\SpecialCharTok{==} \StringTok{"Yemen"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Yemen, Rep."}\NormalTok{, }
+    \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ country ) ) }
+\NormalTok{climate\_covid }\OtherTok{\textless{}{-}}\NormalTok{ climate\_awareness\_cleaned }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{inner\_join}\NormalTok{(covid\_2020\_cleaned }\SpecialCharTok{|\textgreater{}} 
+               \FunctionTok{select}\NormalTok{(country, continent, total\_cases), }\AttributeTok{by =} \StringTok{"country"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The data come from the Our World in Data COVID\_19 database and detail the number of covid cases in each country in 2020, recorded daily.
+
+In order to clean the data, we adjusted some of the names to match the climate awareness data by changing some of the names of certain countries so that they all match.
+
+\subsection{World Happiness Report Data}\label{world-happiness-report-data}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Put in your code to load in the data set, along with any}
+\CommentTok{\# necessary cleaning beyond what was done in Part 1}
+\NormalTok{happiness }\OtherTok{\textless{}{-}} \FunctionTok{read\_parquet}\NormalTok{(}\StringTok{"happiness.parquet"}\NormalTok{)}
+\NormalTok{climate\_covid\_happiness }\OtherTok{\textless{}{-}}\NormalTok{ climate\_covid }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{inner\_join}\NormalTok{(happiness }\SpecialCharTok{|\textgreater{}} \FunctionTok{select}\NormalTok{(country, ladder\_score), }\AttributeTok{by =} \StringTok{"country"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+This data comes from the World Happiness Report from 2023 and detail how people responded to a question about the ``Life Ladder'' about how they rate their overall life satisfaction from 0 to 10. The data has the overall well being of a country depending on how participants from these countries rated their life on the ladder.
+
+In order to clean the data, we didn't have to do any cleaning, as it was already clean from part 1!
+
+\subsection{Combining the Data}\label{combining-the-data}
+
+We first joined climate awareness data to covid data by selecting only columns ``country'', ``continent'', and ``total\_cases''. Then, we used inner\_join to join those columns of the covid 2020 data with the climate awareness data.
+
+For combining happiness data to climate awareness and covid data, we joined this data to the data set climate\_covid, which was made from joining the previous two data sets. We used inner\_join to join the columns ``country'' and ``ladder\_score'' from happiness to the climate awareness and covid data.
+
+\section{Exploratory Data Analysis}\label{exploratory-data-analysis}
+
+To achieve our goals, we explored the data by\ldots{}
+
+We explored many aspects of the data, but will demonstrate three. These are: in countries with higher covid cases there are more people reporting high climate awareness, countries with higher climate awareness are happier, and countries with higher covid cases are also happier
+
+The first aspect that we found interesting is shown in this scatterplot. The insight should be specific to the data shown, not a general statement beyond the data (leave that for the conclusion).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# This is an example of how you can control figures and captions in}
+\CommentTok{\# an R chunk. Note that you can reference figures using:}
+\CommentTok{\# \textbackslash{}@ref(fig:insight1), where "insight1" is the label of this code}
+\CommentTok{\# chunk (the first bit of text after the "r" in "\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r label, options...\}")}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ climate\_covid\_happiness, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ aware\_alot, }\AttributeTok{y =}\NormalTok{ total\_cases)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula = 'y ~ x'
+\end{verbatim}
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{DATA100Assignment3PartII_Final_Report_Template_files/figure-latex/insight1-1.pdf}}
+\caption{\label{fig:insight1}CHANGE CAPTION!!!!!!!!!}
+\end{figure}
+
+This insight is supported by the summary statistics in table @ref(tab:summary\_stats)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculate the relevant summary statistics here.}
+\CommentTok{\# Note that the "kable" function in the "knitr" package}
+\CommentTok{\# is convenient for making nice tables. Other packages can}
+\CommentTok{\# do much fancier things with tables, but keep in mind that}
+\CommentTok{\# the insights should be the star, not the formatting.}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(knitr)}
+
+\NormalTok{summary\_stats }\OtherTok{\textless{}{-}}\NormalTok{ climate\_covid\_happiness }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{correlation =} \FunctionTok{cor}\NormalTok{(aware\_alot, total\_cases)}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{metric =} \StringTok{"Correlation"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{select}\NormalTok{(metric, correlation)}
+
+\FunctionTok{kable}\NormalTok{(}
+\NormalTok{  summary\_stats,}
+  \AttributeTok{digits =} \DecValTok{3}\NormalTok{,}
+  \AttributeTok{caption =} \StringTok{"Correlation between high climate awareness and total covid cases."}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{(\#tab:summary_stats)Correlation between high climate awareness and total covid cases.}
+\centering
+\begin{tabular}[t]{l|r}
+\hline
+metric & correlation\\
+\hline
+Correlation & 0.144\\
+\hline
+\end{tabular}
+\end{table}
+
+The next insight that we found is shown in \ref{fig:insight2}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# This figure will have a height of 4 and a width of 6.}
+\CommentTok{\# Feel free to change this, and to apply different sizes}
+\CommentTok{\# to the other figures you create.}
+\NormalTok{data\_for\_plot }\OtherTok{\textless{}{-}}\NormalTok{ climate\_covid\_happiness }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{awareness\_group =} \FunctionTok{ntile}\NormalTok{(aware\_alot, }\DecValTok{4}\NormalTok{))}
+\FunctionTok{ggplot}\NormalTok{(data\_for\_plot,}
+       \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{factor}\NormalTok{(awareness\_group), }\AttributeTok{y =}\NormalTok{ ladder\_score, }\AttributeTok{fill =} \FunctionTok{factor}\NormalTok{(awareness\_group))) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{x =} \StringTok{"Awareness quartile (from lowest to highest)"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Happiness (Ladder Score)"}\NormalTok{,}
+    \AttributeTok{fill =} \StringTok{"Awareness Group, }\SpecialCharTok{\textbackslash{}n}\StringTok{from lowest to highest"}
+\NormalTok{  ) }\SpecialCharTok{+} 
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{DATA100Assignment3PartII_Final_Report_Template_files/figure-latex/insight2-1.pdf}}
+\caption{\label{fig:insight2}This is a figure caption that you will need to change in order to get good marks in the visualization rubric items.}
+\end{figure}
+
+Finally, \ref{fig:insight3} shows \ldots{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{insight3\_data }\OtherTok{\textless{}{-}}\NormalTok{ climate\_covid\_happiness }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{case\_group =} \FunctionTok{ntile}\NormalTok{(total\_cases, }\DecValTok{4}\NormalTok{)) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{group\_by}\NormalTok{(case\_group) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{mean\_happiness =} \FunctionTok{mean}\NormalTok{(ladder\_score, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{n =} \FunctionTok{n}\NormalTok{()}
+\NormalTok{  )}
+
+\FunctionTok{ggplot}\NormalTok{(insight3\_data,}
+       \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{factor}\NormalTok{(case\_group), }\AttributeTok{y =}\NormalTok{ mean\_happiness, }
+           \AttributeTok{fill =} \FunctionTok{factor}\NormalTok{(case\_group))) }\SpecialCharTok{+}
+  \FunctionTok{geom\_col}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{x =} \StringTok{"COVID{-}19 case quartile (from lowest to highest)"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Average Happiness (Ladder Score)"}\NormalTok{,}
+    \AttributeTok{fill =} \StringTok{"Case}\SpecialCharTok{\textbackslash{}n}\StringTok{Quartile"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{DATA100Assignment3PartII_Final_Report_Template_files/figure-latex/insight3-1.pdf}}
+\caption{\label{fig:insight3}This is a figure caption that you will need to change in order to get good marks in the visualization rubric items.}
+\end{figure}
+
+\section{Conclusion and Future Work}\label{conclusion-and-future-work}
+
+Overall, we found \textless{}\textgreater.
+
+A second paragraph about our findings.
+
+The next steps in this analysis are\ldots{}
+
+The limitations of this analysis are as follows. (Do not simply list potential issues with sampling, but relate them to your analysis and how they affect your conclusions. An honest and complete acknowledgement of the limitations makes the analysis more trustworthy.)
+
+\section{References}\label{references}
+
+I am not strict about MLA or APA style or anything like that. For this report, I would much rather have your citations be easy to match to your insights.
+
+The easiest way is to use Rmd's \href{https://bookdown.org/yihui/rmarkdown/markdown-syntax.html\#inline-formatting}{footnote} syntax. This will put a number beside the word where the footnote appears, and the full text of the footnote at the bottom of the page (pdf) or end of the document (html). The syntax is:\footnote{See the source view to see this footnote}, where I suggest that you put in something like this\footnote{The relevance to the insight is \ldots{} . From \textless{}\textgreater, published on \textless{}\textgreater, url: \textless{}\textgreater{}} to make references for this assignment.
+
+Alternatively, you could make a list of citations with their main arguments and why they're relevent to your insights, methods, etc.
+
+The link above also references ``bibtex'' files. These are also extremely convenient, but have a steep learning curve and they make it difficult to tie them to an insight. If you use bibtext, then make sure that you provide a sentence to describe the source and it's relevance when you cite it - don't just add citations to the end of a sentence (this is common practice in academia, but I want to know that your citations are directly relevant for this assignmnet).
+
+\end{document}
