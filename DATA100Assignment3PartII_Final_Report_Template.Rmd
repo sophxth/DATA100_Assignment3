@@ -169,7 +169,7 @@ ggplot(data_for_plot,
   labs(
     x = "Awareness quartile (from lowest to highest)",
     y = "Happiness (Ladder Score)",
-    fill = "Awareness Group (lowest to highest)"
+    fill = "Awareness Group n/(lowest to highest)"
   ) + 
   theme_minimal()
 ```
