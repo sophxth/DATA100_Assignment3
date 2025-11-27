@@ -12,8 +12,8 @@ always_allow_html: true
 ---
 
 List your group members, including their student numbers, here:
-\n- Sophia Thai (\#169112540)
-\n- Kaya Darling(\#169112257)
+- Sophia Thai (\#169112540)
+- Kaya Darling(\#169112257)
 
 ```{r setup, include=FALSE}
 knitr::opts_knit$set(bookdown.internal.label = TRUE)
