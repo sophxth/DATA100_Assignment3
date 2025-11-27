@@ -99,7 +99,7 @@ climate_covid_happiness <- climate_covid |>
 
 This data comes from the World Happiness Report from 2023 and detail how people responded to a question about the "Life Ladder" [^3] about how they rate their overall life satisfaction from 0 to 10. The data has the overall well being of a country depending on how participants from these countries rated their life on the ladder. 
 
-In order to clean the data, we didn't have to do any cleaning, as it was already clean from part 1! 
+We didn't have to do any cleaning for this data, as it was already clean from part 1! 
 
 ## Combining the Data
 We first joined climate awareness data to covid data by selecting only columns "country", "continent", and `total\_cases`. Then, we used `inner\_join` to join those columns of the covid 2020 data with the climate awareness data. 
