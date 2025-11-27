@@ -20,18 +20,13 @@ knitr::opts_chunk$set(
 )
 ```
 
+
 # Data Description
 
 ## Climate Change Awareness Data
 
 ```{r load_data1}
-# Put in your code to load in the data set, along with any
-# necessary cleaning beyond what was done in Part 1
 
-# Note that the code in this document will not be shown
-# when you click "knit", so the placement of this code
-# chunk is purely for your benefit: You can see what happened
-# with your data, which makes it easier to describe below!
 library(tidyverse)
 library(arrow)
 
@@ -81,6 +76,8 @@ covid_2020_cleaned <- covid_2020 |>
 climate_covid <- climate_awareness_cleaned |> 
   inner_join(covid_2020_cleaned |> 
                select(country, continent, total_cases), by = "country")
+
+climate_covid
 ```
 
 The data come from the Our World in Data COVID_19 database and detail the number of covid cases in each country in 2020, recorded daily [^2].
@@ -95,6 +92,7 @@ In order to clean the data, we adjusted some of the names to match the climate a
 happiness <- read_parquet("happiness.parquet")
 climate_covid_happiness <- climate_covid |> 
   inner_join(happiness |> select(country, ladder_score), by = "country")
+climate_covid_happiness
 ```
 
 This data comes from the World Happiness Report from 2023 and detail how people responded to a question about the "Life Ladder" [^3] about how they rate their overall life satisfaction from 0 to 10. The data has the overall well being of a country depending on how participants from these countries rated their life on the ladder. 
@@ -102,15 +100,15 @@ This data comes from the World Happiness Report from 2023 and detail how people 
 We didn't have to do any cleaning for this data, as it was already clean from part 1! 
 
 ## Combining the Data
-We first joined climate awareness data to covid data by selecting only columns "country", "continent", and `total\_cases`. Then, we used `inner\_join` to join those columns of the covid 2020 data with the climate awareness data. 
+We first joined climate awareness data to covid data by selecting only columns "country", "continent", and `total_cases`. Then, we used `inner_join` to join those columns of the covid 2020 data with the climate awareness data. 
  
-For combining happiness data with climate awareness and covid data, we joined this data to the data set `climate\_covid`, which was made from joining the previous two data sets. We used `inner\_join()` to join the columns `"country"` and `"ladder\_score"` from the happiness data to the climate awareness and covid data.
+For combining happiness data with climate awareness and covid data, we joined this data to the data set `climate_covid`, which was made from joining the previous two data sets. We used `inner_join()` to join the columns `"country"` and `"ladder_score"` from the happiness data to the climate awareness and covid data.
 
 # Exploratory Data Analysis
 
 To achieve our goals, we explored the data by...
 
-We explored many aspects of the data, but will demonstrate three. These are: in countries with higher covid cases there are more people reporting high climate awareness, countries with higher climate awareness are happier, and countries with higher covid cases are also happier
+We explored many aspects of the data, but will demonstrate three. These are countries with higher covid cases there are more people reporting high climate awareness, countries with higher climate awareness are happier, and countries with higher covid cases are also happier
 
 The first aspect that we found interesting is shown in this scatterplot. The insight should be specific to the data shown, not a general statement beyond the data (leave that for the conclusion).
 
@@ -174,6 +172,7 @@ ggplot(data_for_plot,
   theme_minimal()
 ```
 
+
 Countries with greater climate awareness tend to have higher reported happiness scores, based on data from the Meta Climate Change Survey and the World Happiness Report [^1][^2]. 
 
 This boxplot shows a clear upward trend, indicating that countries with greater climate awareness tend to have higher reported happiness scores. This pattern likely reflects broader structural differences rather than a direct causal relationship. Countries with higher climate awareness often also have better access to education, higher GDP, more stable institutions, and stronger scientific and media communication systems. These underlying factors contribute both to increased awareness of climate issues and to higher Life Ladder scores, which helps explain the positive association observed in the data.
@@ -215,7 +214,6 @@ This analysis also has several limitations. Measures of climate awareness rely o
 
 Despite these limitations, our findings highlight meaningful and interpretable patterns across global climate literacy, public health outcomes, and well-being. The integration of disparate datasets provides valuable insight into how social, economic, and institutional factors shape international trends in awareness, happiness, and reported health data.
 
-# References
 
 [^1]: Meta. (2022). Meta Climate Change Opinion Survey 2022 [Data set]. Humanitarian Data Exchange (HDX). https://data.humdata.org/dataset/meta-climate-change-opinion-survey
 
