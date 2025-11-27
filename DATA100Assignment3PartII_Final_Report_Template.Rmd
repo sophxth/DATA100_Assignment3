@@ -12,13 +12,6 @@ List your group members, including their student numbers, here:
 - Sophia Thai (\#169112540)
 - Kaya Darling(\#169112257)
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(
-  echo = FALSE,
-  warning = FALSE,
-  message = FALSE
-)
-```
 
 # Data Description
 
@@ -81,6 +74,8 @@ covid_2020_cleaned <- covid_2020 |>
 climate_covid <- climate_awareness_cleaned |> 
   inner_join(covid_2020_cleaned |> 
                select(country, continent, total_cases), by = "country")
+
+climate_covid
 ```
 
 The data come from the Our World in Data COVID_19 database and detail the number of covid cases in each country in 2020, recorded daily [^2].
@@ -95,6 +90,7 @@ In order to clean the data, we adjusted some of the names to match the climate a
 happiness <- read_parquet("happiness.parquet")
 climate_covid_happiness <- climate_covid |> 
   inner_join(happiness |> select(country, ladder_score), by = "country")
+climate_covid_happiness
 ```
 
 This data comes from the World Happiness Report from 2023 and detail how people responded to a question about the "Life Ladder" [^3] about how they rate their overall life satisfaction from 0 to 10. The data has the overall well being of a country depending on how participants from these countries rated their life on the ladder. 
