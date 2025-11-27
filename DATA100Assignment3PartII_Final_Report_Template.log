@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.26)  26 NOV 2025 13:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.26)  26 NOV 2025 21:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -458,8 +458,43 @@ LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 1
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [1
 
-{/Users/trzmahhh/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/Users/trzmahhh/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/Users/trzmahhh/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] [2]
-<DATA100Assignment3PartII_Final_Report_Template_files/figure-latex/insight1-1.pdf, id=24, 469.755pt x 325.215pt>
+{/Users/trzmahhh/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/Users/trzmahhh/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/Users/trzmahhh/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 202.
+(/Users/trzmahhh/Library/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 202.
+(/Users/trzmahhh/Library/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 202.
+(/Users/trzmahhh/Library/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 202.
+(/Users/trzmahhh/Library/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 202.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 202.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 202.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 202.
+(/Users/trzmahhh/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 202.
+(/Users/trzmahhh/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 202.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 202.
+[2]
+<DATA100Assignment3PartII_Final_Report_Template_files/figure-latex/insight1-1.pdf, id=36, 469.755pt x 325.215pt>
 File: DATA100Assignment3PartII_Final_Report_Template_files/figure-latex/insight1-1.pdf Graphic file (type pdf)
 <use DATA100Assignment3PartII_Final_Report_Template_files/figure-latex/insight1-1.pdf>
 Package pdftex.def Info: DATA100Assignment3PartII_Final_Report_Template_files/figure-latex/insight1-1.pdf  used on input line 287.
@@ -480,11 +515,11 @@ you left one out. Proceed, with fingers crossed.
 
  
 Here is how much of TeX's memory you used:
- 11807 strings out of 469519
- 181110 string characters out of 5469078
+ 11947 strings out of 469519
+ 183927 string characters out of 5469078
  607354 words of memory out of 5000000
- 40303 multiletter control sequences out of 15000+600000
- 645036 words of font info for 51 fonts, out of 8000000 for 9000
+ 40395 multiletter control sequences out of 15000+600000
+ 674282 words of font info for 80 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 89i,5n,93p,713b,487s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,8n,93p,1221b,485s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!
