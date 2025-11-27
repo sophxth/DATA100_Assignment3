@@ -7,6 +7,8 @@ output:
   bookdown::pdf_document2:
     toc: false
 number_sections: true
+always_allow_html: true
+
 ---
 
 List your group members, including their student numbers, here:
@@ -14,6 +16,7 @@ List your group members, including their student numbers, here:
 - Kaya Darling(\#169112257)
 
 ```{r setup, include=FALSE}
+knitr::opts_knit$set(bookdown.internal.label = TRUE)
 knitr::opts_chunk$set(
   echo = FALSE,
   warning = FALSE,
@@ -178,10 +181,9 @@ Countries with greater climate awareness tend to have higher reported happiness 
 
 This boxplot shows a clear upward trend, indicating that countries with greater climate awareness tend to have higher reported happiness scores. This pattern likely reflects broader structural differences rather than a direct causal relationship. Countries with higher climate awareness often also have better access to education, higher GDP, more stable institutions, and stronger scientific and media communication systems. These underlying factors contribute both to increased awareness of climate issues and to higher Life Ladder scores, which helps explain the positive association observed in the data.
 
-Finally, \@ref(fig:insight3) shows ...
 
-```{r insight3, fig.height=4, fig.width=6, fig.cap="Average happiness score by COVID-19 case quartile."}
 
+```{r insight3_prep}
 insight3_data <- climate_covid_happiness |>
   mutate(case_group = ntile(total_cases, 4)) |>
   group_by(case_group) |>
@@ -190,6 +192,9 @@ insight3_data <- climate_covid_happiness |>
     n = n()
   )
 
+```
+
+```{r fig:insight3, fig.cap="Average happiness score by COVID-19 case quartile.", fig.height=4, fig.width=6}
 ggplot(insight3_data,
        aes(x = factor(case_group), y = mean_happiness, 
            fill = factor(case_group))) +
