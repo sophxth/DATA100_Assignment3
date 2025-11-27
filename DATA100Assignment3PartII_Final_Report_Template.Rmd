@@ -1,7 +1,7 @@
 ---
 title: "Global Patterns in Climate Awareness, COVID-19 Impact, and National Happiness"
 subtitle: "Exploring Disparate Data: Part 3 - Final Report"
-author: "Put your group name here: The Geese"
+author: "The Geese"
 date: "Due November 26th, 2025"
 output:
   bookdown::pdf_document2:
@@ -221,12 +221,12 @@ This analysis also has several limitations. Measures of climate awareness rely o
 Despite these limitations, our findings highlight meaningful and interpretable patterns across global climate literacy, public health outcomes, and well-being. The integration of disparate datasets provides valuable insight into how social, economic, and institutional factors shape international trends in awareness, happiness, and reported health data.
 
 
-[^1]: Meta. (2022). Meta Climate Change Opinion Survey 2022 [Data set]. Humanitarian Data Exchange (HDX). https://data.humdata.org/dataset/meta-climate-change-opinion-survey
+[^1]: Meta. (2022). Meta Climate Change Opinion Survey 2022. Humanitarian Data Exchange (HDX). https://data.humdata.org/dataset/meta-climate-change-opinion-survey
 
-[^2]: Ritchie, H., Mathieu, E., Rodés-Guirao, L., Appel, C., Giattino, C., Ortiz-Ospina, E., Hasell, J., Macdonald, B., Beltekian, D., & Roser, M. (2020). Coronavirus pandemic (COVID-19) [Data set]. Our World in Data. https://ourworldindata.org/coronavirus
+[^2]: Ritchie, H., Mathieu, E., Rodés-Guirao, L., Appel, C., Giattino, C., Ortiz-Ospina, E., Hasell, J., Macdonald, B., Beltekian, D., & Roser, M. (2020). Coronavirus pandemic (COVID-19). Our World in Data. https://ourworldindata.org/coronavirus
 
-[^3]: Helliwell, J. F., Layard, R., Sachs, J. D., & De Neve, J.-E. (2023). World Happiness Report 2023 [Data set]. Sustainable Development Solutions Network. https://worldhappiness.report
+[^3]: Helliwell, J. F., Layard, R., Sachs, J. D., & De Neve, J.-E. (2023). World Happiness Report 2023. Sustainable Development Solutions Network. https://worldhappiness.report
 
-[^4]: The World Bank. (2023). Country and lending groups [Data set]. https://datahelpdesk.worldbank.org/knowledgebase/articles/906519
+[^4]: The World Bank. (2023). Country and lending groups. https://datahelpdesk.worldbank.org/knowledgebase/articles/906519
 
-[^5]: United Nations Development Programme. (2023). Human Development Report 2023 [Data set]. https://hdr.undp.org
+[^5]: United Nations Development Programme. (2023). Human Development Report 2023. https://hdr.undp.org
