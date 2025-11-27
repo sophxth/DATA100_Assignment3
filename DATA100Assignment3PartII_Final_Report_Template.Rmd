@@ -18,13 +18,7 @@ List your group members, including their student numbers, here:
 ## Climate Change Awareness Data
 
 ```{r load_data1}
-# Put in your code to load in the data set, along with any
-# necessary cleaning beyond what was done in Part 1
 
-# Note that the code in this document will not be shown
-# when you click "knit", so the placement of this code
-# chunk is purely for your benefit: You can see what happened
-# with your data, which makes it easier to describe below!
 library(tidyverse)
 library(arrow)
 
