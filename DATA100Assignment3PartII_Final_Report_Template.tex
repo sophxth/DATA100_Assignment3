@@ -109,12 +109,10 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={Exploring Disparate Data: Part 3 - Final Report},
   pdfauthor={Put your group name here: The Geese},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
-\title{Exploring Disparate Data: Part 3 - Final Report}
 \usepackage{etoolbox}
 \makeatletter
 \providecommand{\subtitle}[1]{% add subtitle to \maketitle
@@ -126,7 +124,6 @@
 \date{Due November 26th, 2025}
 
 \begin{document}
-\maketitle
 
 List your group members, including their student numbers, here:
 - Sophia Thai (\#169112540)
@@ -254,9 +251,9 @@ In order to clean the data, we didn't have to do any cleaning, as it was already
 
 \subsection{Combining the Data}\label{combining-the-data}
 
-We first joined climate awareness data to covid data by selecting only columns ``country'', ``continent'', and \texttt{total\_cases}. Then, we used \texttt{inner\textbackslash{}\_join} to join those columns of the covid 2020 data with the climate awareness data.
+We first joined climate awareness data to covid data by selecting only columns ``country'', ``continent'', and \texttt{total\textbackslash{}\_cases}. Then, we used \texttt{inner\textbackslash{}\_join} to join those columns of the covid 2020 data with the climate awareness data.
 
-For combining happiness data with climate awareness and covid data, we joined this data to the data set \texttt{climate\_covid}, which was made from joining the previous two data sets. We used \texttt{inner\_join()} to join the columns \texttt{"country"} and \texttt{"ladder\_score"} from the happiness data to the climate awareness and covid data.
+For combining happiness data with climate awareness and covid data, we joined this data to the data set \texttt{climate\textbackslash{}\_covid}, which was made from joining the previous two data sets. We used \texttt{inner\textbackslash{}\_join()} to join the columns \texttt{"country"} and \texttt{"ladder\textbackslash{}\_score"} from the happiness data to the climate awareness and covid data.
 
 \section{Exploratory Data Analysis}\label{exploratory-data-analysis}
 
@@ -312,14 +309,15 @@ This insight is supported by the summary statistics in table @ref(tab:summary\_s
 \FunctionTok{kable}\NormalTok{(}
 \NormalTok{  summary\_stats,}
   \AttributeTok{digits =} \DecValTok{3}\NormalTok{,}
-  \AttributeTok{caption =} \StringTok{"Correlation between high climate awareness and total covid cases."}
+  \AttributeTok{caption =} \StringTok{"Correlation between high climate awareness and total covid cases"}
+
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{table}
 
-\caption{(\#tab:summary_stats)Correlation between high climate awareness and total covid cases.}
+\caption{(\#tab:summary_stats)Correlation between high climate awareness and total covid cases}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -398,13 +396,5 @@ This analysis also has several limitations. Measures of climate awareness rely o
 Despite these limitations, our findings highlight meaningful and interpretable patterns across global climate literacy, public health outcomes, and well-being. The integration of disparate datasets provides valuable insight into how social, economic, and institutional factors shape international trends in awareness, happiness, and reported health data.
 
 \section{References}\label{references}
-
-I am not strict about MLA or APA style or anything like that. For this report, I would much rather have your citations be easy to match to your insights.
-
-The easiest way is to use Rmd's \href{https://bookdown.org/yihui/rmarkdown/markdown-syntax.html\#inline-formatting}{footnote} syntax. This will put a number beside the word where the footnote appears, and the full text of the footnote at the bottom of the page (pdf) or end of the document (html). The syntax is:\footnote{See the source view to see this footnote}, where I suggest that you put in something like this\footnote{The relevance to the insight is \ldots{} . From \textless{}\textgreater, published on \textless{}\textgreater, url: \textless{}\textgreater{}} to make references for this assignment.
-
-Alternatively, you could make a list of citations with their main arguments and why they're relevent to your insights, methods, etc.
-
-The link above also references ``bibtex'' files. These are also extremely convenient, but have a steep learning curve and they make it difficult to tie them to an insight. If you use bibtext, then make sure that you provide a sentence to describe the source and it's relevance when you cite it - don't just add citations to the end of a sentence (this is common practice in academia, but I want to know that your citations are directly relevant for this assignmnet).
 
 \end{document}
