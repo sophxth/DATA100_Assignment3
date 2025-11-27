@@ -12,6 +12,7 @@ always_allow_html: true
 ---
 
 List your group members, including their student numbers, here:
+
 - Sophia Thai (\#169112540)
 - Kaya Darling(\#169112257)
 
