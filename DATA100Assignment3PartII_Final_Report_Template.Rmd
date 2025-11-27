@@ -114,7 +114,7 @@ To achieve our goals, we explored the data by...
 
 We explored many aspects of the data, but will demonstrate three. These are countries with higher covid cases there are more people reporting high climate awareness, countries with higher climate awareness are happier, and countries with higher covid cases are also happier
 
-The first aspect that we found interesting is shown in this scatterplot. The insight should be specific to the data shown, not a general statement beyond the data (leave that for the conclusion).
+The first aspect that we found interesting is shown in this scatterplot.
 
 ```{r insight1, fig.cap="Relationship between climate awareness and covid cases"}
 # This is an example of how you can control figures and captions in
