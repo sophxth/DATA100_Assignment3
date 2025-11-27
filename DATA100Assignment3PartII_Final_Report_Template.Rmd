@@ -194,7 +194,7 @@ insight3_data <- climate_covid_happiness |>
 
 ```
 
-```{r fig:insight3, fig.cap="Average happiness score by COVID-19 case quartile.", fig.height=4, fig.width=6}
+```{r fig:insight3, fig.cap="Average happiness score by COVID-19 case quartile.", fig.height=4, fig.width=9}
 ggplot(insight3_data,
        aes(x = factor(case_group), y = mean_happiness, 
            fill = factor(case_group))) +
