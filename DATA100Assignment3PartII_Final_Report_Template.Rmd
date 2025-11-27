@@ -205,7 +205,6 @@ This analysis also has several limitations. Measures of climate awareness rely o
 
 Despite these limitations, our findings highlight meaningful and interpretable patterns across global climate literacy, public health outcomes, and well-being. The integration of disparate datasets provides valuable insight into how social, economic, and institutional factors shape international trends in awareness, happiness, and reported health data.
 
-# References
 
 [^1]: Meta. (2022). Meta Climate Change Opinion Survey 2022 [Data set]. Humanitarian Data Exchange (HDX). https://data.humdata.org/dataset/meta-climate-change-opinion-survey
 
