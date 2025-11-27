@@ -45,6 +45,7 @@ climate_awareness_cleaned <- climate_awareness |>
     )
   )
 
+climate_awareness_cleaned
 ```
 
 The data come from HDX (Humanitarian Data Exchange) and describes the responses to a survey in 2022 from the Meta Climate Change Opinion Survey. This survey asked people in many different countries their level of awareness on climate change and recorded their responses [^1]. The people doing the survey had the option to choose between different statements that represented their awareness of climate change. For example, if they we not aware at all the participant would select "I have never heard of it".  
