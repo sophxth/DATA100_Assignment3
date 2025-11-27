@@ -133,9 +133,9 @@ ggplot(data = climate_covid_happiness,
 ```
 We observe a positive relationship between the percentage of respondents who reported “I know a lot about climate change” and the total number of COVID-19 cases [^1][^2]. This pattern does not imply that climate awareness causes higher case counts; rather, it reflects broader national characteristics. Countries with stronger education systems and greater access to information tend to show higher levels of climate awareness. These same countries also typically have higher population densities, more international travel, and more comprehensive COVID-19 testing and reporting infrastructure. Together, these factors produce the positive trend observed in the data.
 
-This insight is supported by the summary statistics in table \@ref(tab:summary_stats)
+This insight is supported by the summary statistics in table @ref(tab:summary_stats)
 
-```{r summary_stats, fig.cap="Correlation between high climate awareness and total covid cases"}
+```{r tab:summary_stats, tbl.cap="Summary statistics for correlation"}
 # Calculate the relevant summary statistics here.
 # Note that the "kable" function in the "knitr" package
 # is convenient for making nice tables. Other packages can
