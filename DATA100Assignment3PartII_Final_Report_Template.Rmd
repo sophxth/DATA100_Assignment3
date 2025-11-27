@@ -172,6 +172,7 @@ ggplot(data_for_plot,
   theme_minimal()
 ```
 
+
 Countries with greater climate awareness tend to have higher reported happiness scores, based on data from the Meta Climate Change Survey and the World Happiness Report [^1][^2]. 
 
 This boxplot shows a clear upward trend, indicating that countries with greater climate awareness tend to have higher reported happiness scores. This pattern likely reflects broader structural differences rather than a direct causal relationship. Countries with higher climate awareness often also have better access to education, higher GDP, more stable institutions, and stronger scientific and media communication systems. These underlying factors contribute both to increased awareness of climate issues and to higher Life Ladder scores, which helps explain the positive association observed in the data.
