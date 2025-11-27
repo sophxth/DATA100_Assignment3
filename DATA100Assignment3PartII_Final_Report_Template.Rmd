@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Global Patterns in Climate Awareness, COVID-19 Impact, and National Happiness"
 subtitle: "Exploring Disparate Data: Part 3 - Final Report"
 author: "Put your group name here: The Geese"
 date: "Due November 26th, 2025"
@@ -125,7 +125,7 @@ We observe a positive relationship between the percentage of respondents who rep
 
 This insight is supported by the summary statistics in table \@ref(tab:summary_stats)
 
-```{r summary_stats}
+```{r summary_stats, fig.cap="Correlation between high climate awareness and total covid cases"}
 # Calculate the relevant summary statistics here.
 # Note that the "kable" function in the "knitr" package
 # is convenient for making nice tables. Other packages can
@@ -144,8 +144,6 @@ summary_stats <- climate_covid_happiness |>
 kable(
   summary_stats,
   digits = 3,
-  caption = "Correlation between high climate awareness and total covid cases"
-
 )
 ```
 
