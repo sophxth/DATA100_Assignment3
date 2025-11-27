@@ -8,7 +8,6 @@ output:
     toc: false
 number_sections: true
 always_allow_html: true
-
 ---
 
 List your group members, including their student numbers, here:
