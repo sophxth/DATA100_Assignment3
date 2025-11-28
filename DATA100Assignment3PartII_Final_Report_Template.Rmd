@@ -2,7 +2,7 @@
 title: "Global Patterns in Climate Awareness, COVID-19 Impact, and National Happiness"
 subtitle: "Exploring Disparate Data: Part 3 - Final Report"
 author: "The Geese"
-date: "Due November 26th, 2025"
+date: "Due November 29th, 2025"
 output:
   bookdown::pdf_document2:
     toc: false
@@ -69,15 +69,17 @@ In order to clean the data, we first adjusted so that all of the periods in betw
 # completely necessary
 covid_2020 <- read_parquet("covid_2020.parquet") 
 covid_2020_cleaned <- covid_2020 |> 
-  mutate( country = case_when(
-    country == "Democratic Republic of Congo" ~ "Democratic Republic of Congo", 
-    country == "Egypt" ~ "Egypt, Arab Rep.", 
-    country == "Hong Kong" ~ "Hong Kong SAR, China", 
-    country == "Laos" ~ "Laos", country == "Slovakia" ~ "Slovak Republic", 
-    country == "South Korea" ~ "Korea, Rep.", country == "Turkey" ~ "Turkiye", 
-    country == "Vietnam" ~ "Viet Nam", 
-    country == "Yemen" ~ "Yemen, Rep.", 
-    TRUE ~ country ) ) 
+  mutate( 
+    country = case_when(
+      country == "Democratic Republic of Congo" ~ "Democratic Republic of Congo", 
+      country == "Egypt" ~ "Egypt, Arab Rep.", 
+      country == "Hong Kong" ~ "Hong Kong SAR, China", 
+      country == "Laos" ~ "Laos", country == "Slovakia" ~ "Slovak Republic", 
+      country == "South Korea" ~ "Korea, Rep.", country == "Turkey" ~ "Turkiye", 
+      country == "Vietnam" ~ "Viet Nam", 
+      country == "Yemen" ~ "Yemen, Rep.", 
+      TRUE ~ country 
+    ))
 climate_covid <- climate_awareness_cleaned |> 
   inner_join(covid_2020_cleaned |> 
                select(country, continent, total_cases), by = "country")
@@ -115,7 +117,7 @@ To achieve our goals, we explored the data by...
 
 We explored many aspects of the data, but will demonstrate three. These are countries with higher covid cases there are more people reporting high climate awareness, countries with higher climate awareness are happier, and countries with higher covid cases are also happier
 
-The first aspect that we found interesting is shown in this scatterplot. Figure \@ref(fig:insight1)
+The first aspect that we found interesting is shown in this scatterplot. Figure 1.
 
 ```{r insight1, fig.cap="Relationship between climate awareness and covid cases"}
 # This is an example of how you can control figures and captions in
@@ -125,16 +127,18 @@ The first aspect that we found interesting is shown in this scatterplot. Figure 
 ggplot(data = climate_covid_happiness, 
        aes(x = aware_alot, y = total_cases)) + 
   geom_point(alpha = 0.6) +
-  geom_smooth(method = "lm", se = FALSE) +
+  geom_smooth(method = "lm", se = FALSE, color="blue") +
+  scale_y_log10() +
   labs(
     x = "Climate awareness score",
-    y = "Total COVID-19 cases"
-  )
+    y = "Total COVID-19 cases (log scale)"
+  ) +
+  theme_minimal()
 
 ```
 We observe a positive relationship between the percentage of respondents who reported “I know a lot about climate change” and the total number of COVID-19 cases [^1][^2]. This pattern does not imply that climate awareness causes higher case counts; rather, it reflects broader national characteristics. Countries with stronger education systems and greater access to information tend to show higher levels of climate awareness. These same countries also typically have higher population densities, more international travel, and more comprehensive COVID-19 testing and reporting infrastructure. Together, these factors produce the positive trend observed in the data.
 
-This insight is supported by the summary statistics in table \@ref(tab:summary_stats)
+This insight is supported by the summary statistics in table 1
 
 ```{r tab:summary_stats, tbl.cap="Summary statistics for correlation"}
 # Calculate the relevant summary statistics here.
@@ -146,9 +150,7 @@ library(dplyr)
 library(knitr)
 
 summary_stats <- climate_covid_happiness |>
-  summarise(
-    correlation = cor(aware_alot, total_cases)
-  ) |>
+  summarise(correlation = cor(aware_alot, log10(total_cases))) |>
   mutate(metric = "Correlation") |>
   select(metric, correlation)
 
@@ -158,7 +160,7 @@ kable(
 )
 ```
 
-The next insight that we found is shown in \@ref(fig:insight2).
+The next insight that we found is shown in figure 2.
 
 ```{r insight2, fig.height=4, fig.width=6, fig.cap="Happiness scores by climate awareness quartile"}
 # This figure will have a height of 4 and a width of 6.
@@ -210,6 +212,7 @@ ggplot(insight3_data,
 Countries in the highest COVID-case quartile also report the highest average happiness, which reflects patterns seen in COVID-19 reporting and Life Ladder data [^2][^3].
 
 Surprisingly, countries in the highest COVID-case quartile also report the highest average happiness. This counterintuitive pattern can be explained by the fact that regions such as Western Europe, North America, Australia, and parts of East Asia both experienced high reported case counts and consistently rank among the highest on the Life Ladder. In contrast, many countries with limited testing capacity reported fewer cases but also tend to have lower happiness scores. As a result, the association between higher case counts and higher happiness is indirect and largely reflects differences in economic development and infrastructure rather than any meaningful effect of COVID-19 itself.
+
 
 # Conclusion and Future Work
 
