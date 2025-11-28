@@ -115,7 +115,7 @@ To achieve our goals, we explored the data by...
 
 We explored many aspects of the data, but will demonstrate three. These are countries with higher covid cases there are more people reporting high climate awareness, countries with higher climate awareness are happier, and countries with higher covid cases are also happier
 
-The first aspect that we found interesting is shown in this scatterplot.
+The first aspect that we found interesting is shown in this scatterplot. Figure \@ref(fig:insight1)
 
 ```{r insight1, fig.cap="Relationship between climate awareness and covid cases"}
 # This is an example of how you can control figures and captions in
@@ -134,7 +134,7 @@ ggplot(data = climate_covid_happiness,
 ```
 We observe a positive relationship between the percentage of respondents who reported “I know a lot about climate change” and the total number of COVID-19 cases [^1][^2]. This pattern does not imply that climate awareness causes higher case counts; rather, it reflects broader national characteristics. Countries with stronger education systems and greater access to information tend to show higher levels of climate awareness. These same countries also typically have higher population densities, more international travel, and more comprehensive COVID-19 testing and reporting infrastructure. Together, these factors produce the positive trend observed in the data.
 
-This insight is supported by the summary statistics in table @ref(tab:summary_stats)
+This insight is supported by the summary statistics in table \@ref(tab:summary_stats)
 
 ```{r tab:summary_stats, tbl.cap="Summary statistics for correlation"}
 # Calculate the relevant summary statistics here.
